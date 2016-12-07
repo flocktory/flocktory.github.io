@@ -1,0 +1,20 @@
+# Site settings
+title: Flocktory documentation
+email: dev@flocktory.com
+description: >
+  flocktory.com documentation
+  flocktory.com documentation
+  flocktory.com documentation
+baseurl: ""
+url: "http://flocktory.github.io"
+twitter_username: flocktory
+github_username:  flocktory
+
+# Build settings
+markdown: kramdown
+
+collections:
+  docs_ru:
+    output: true
+    permalink: /ru/:path/
+

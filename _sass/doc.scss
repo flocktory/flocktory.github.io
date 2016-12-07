@@ -1,0 +1,20 @@
+.Doc {
+  display: flex;
+  flex-direction: row;
+
+  &-nav {
+    width: 300px;
+  }
+
+  &-menu {
+    list-style: none;
+  }
+
+  &-submenu {
+    list-style: none;
+  }
+
+  &-article {
+    flex: 1;
+  }
+}

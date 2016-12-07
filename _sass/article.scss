@@ -1,0 +1,13 @@
+@import 'settings';
+
+.Article {
+  max-width: $article-width;
+
+  &-title {
+    padding: 15px;
+  }
+
+  &-content {
+    padding: 15px;
+  }
+}

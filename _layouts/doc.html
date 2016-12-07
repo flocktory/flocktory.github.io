@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<div class="Doc">
+  <nav class="Doc-nav">
+    <ul class="Doc-menu">
+      {% assign cats = site.docs_ru | group_by:"section" %}
+      {% for cat in cats %}
+        <li class="Doc-menuItem">
+          {{ cat.name }}
+          <ul class="Doc-submenu">
+            {% for post in cat.items %}
+              <li class="Doc-submenuItem">
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <article class="Doc-article Article" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="Article-header">
+      <h1 class="Article-title">{{ page.title }}</h1>
+    </header>
+
+    <div class="Article-content">
+      {{ content }}
+    </div>
+
+  </article>
+</div>
