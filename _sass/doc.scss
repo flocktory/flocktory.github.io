@@ -4,6 +4,7 @@
 
   &-nav {
     width: 300px;
+    padding-top: 15px;
   }
 
   &-menu {
@@ -16,5 +17,9 @@
 
   &-article {
     flex: 1;
+  }
+
+  &-sectionName {
+    text-transform: capitalize;
   }
 }

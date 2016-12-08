@@ -5,11 +5,15 @@ layout: default
   <nav class="Doc-nav">
     <ul class="Doc-menu">
       {% assign cats = site.docs_ru | group_by:"section" %}
-      {% for cat in cats %}
+      {% for tag in site.sections_order %}
+        {% assign cat = cats | where:"name",tag | first %}
         <li class="Doc-menuItem">
-          {{ cat.name }}
+          <div class="Doc-sectionName">
+            {{ cat.name | uppercase }}
+          </div>
           <ul class="Doc-submenu">
-            {% for post in cat.items %}
+            {% assign docs = cat.items | sort: "order", "last" %}
+            {% for post in docs %}
               <li class="Doc-submenuItem">
                 <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
               </li>

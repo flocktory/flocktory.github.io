@@ -2,7 +2,6 @@
 layout: doc
 title:  "Exchange"
 section: integration
-order: 10
 ---
 
 Внимание! Перед подключением модуля Exchange необходимо произвести [общую интеграцию]({{ site.baseurl }}{% link _docs_ru/integration/general.md %}).

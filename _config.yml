@@ -17,4 +17,14 @@ collections:
   docs_ru:
     output: true
     permalink: /ru/:path/
+  docs_en:
+    output: true
+    permalink: /en/:path/
 
+# Order of sections in menu
+sections_order:
+- integration
+- general
+- exchange
+- emails
+- precheckout

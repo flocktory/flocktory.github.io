@@ -1,0 +1,26 @@
+table {
+  overflow-x: auto;
+  border-collapse: collapse;
+	text-align: left;
+}
+
+th {
+  font-weight: bold;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 7px 10px;
+  vertical-align: top;
+  text-align: left;
+  min-width: 8px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 7px 10px;
+  vertical-align: top;
+  text-align: left;
+  min-width: 8px;
+}
+
+
+
