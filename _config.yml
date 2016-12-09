@@ -28,3 +28,4 @@ sections_order:
 - exchange
 - emails
 - precheckout
+- push
