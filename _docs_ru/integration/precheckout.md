@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Интеграция модуля Precheckout"
+title:  "Precheckout"
 section: integration
 ---
 
@@ -128,3 +128,11 @@ window.flocktory.push(['removeFromCart', {
 | item → id    | ID товара, соответствующий ID товара из вашего YML- или GMF-файла |
 | item → price | Цена добавленного товара                                          |
 | item → count | Количество добавленных единиц товара                              |
+
+<br/>
+### В Google Tag Manager
+
+#### Случай 1. Данные Enhanced Ecommerce передаются в ваш Data Layer
+
+Если вы передаете [Enhanced Ecommerce](https://support.google.com/analytics/answer/6014841?hl=en) в ваш Data Layer в соответствии с [инструкцией](https://developers.google.com/tag-manager/enhanced-ecommerce#cart), вам необходимо установить тэги и создать все нужные переменные в соответствии с инструкцией ниже. Все необходимые данные при этом уже находятся в Data Layer.
+

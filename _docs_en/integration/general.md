@@ -1,26 +1,22 @@
 ---
 layout: doc
-title:  "Общая интеграция"
+title:  "Main integration"
 section: integration
 ---
 
-Прежде чем подключить к проекту любой из продуктов Flocktory, необходима общая интеграция.
+Before you can use the Flocktory platform for your website you need to perform the main integration.
 
-Поместите этот код на все страницы вашего сайта. Лучше всего вставить его в тег `<head>` или в конце тега `<body>`
+Install the following code on ALL of the pages of your website. It should be placed either in the `<head>` section or in the end of the `<body>` section.
 
 ```html
 <script type="text/javascript" src="https://api.flocktory.com/v2/loader.js?site_id=YOUR_SITE_ID" async="async"></script>
 ```
 
-Этот код — общий для всех продуктов Flocktory, и вставлять его нужно только один раз, даже если на одной странице интегрировано несколько механик (например, exchange и precheckout).
+This code is common for all Flocktory products and you only have to put it once to your system, no matter how many products you want to activate.
 
-Будьте внимательны: переменную YOUR_SITE_ID нужно заменить на настоящий id вашего сайта.
-
-К примеру, для сайта dmitry-manannikov.com код будет выглядеть так:
-
-```html
-<script type="text/javascript" src="//api.flocktory.com/v2/loader.js?site_id=1781" async="async"></script>
-```
+ATTENTION: you have to replace YOUR_SITE_ID with your website’s Flocktory ID.
 
 Вы всегда можете уточнить id ваших сайтов в [личном кабинете](http://flocktory.com/) — или обратиться к аккаунт-менеджеру.
+You can find your websites ID in your Flocktory admin area (Profile/MySites) in at [cabinet.flocktory.com](https://cabinet.flocktory.com/) – or request the ID from your account manager.
+
 

@@ -4,7 +4,12 @@ layout: default
 <div class="Doc">
   <nav class="Doc-nav">
     <ul class="Doc-menu">
-      {% assign cats = site.docs_ru | group_by:"section" %}
+      {% if page.collection == 'docs_ru' %}
+        {% assign docs = site.docs_ru %}
+      {% else %}
+        {% assign docs = site.docs_en %}
+      {% endif %}
+      {% assign cats = docs | group_by:"section" %}
       {% for tag in site.sections_order %}
         {% assign cat = cats | where:"name",tag | first %}
         <li class="Doc-menuItem">
