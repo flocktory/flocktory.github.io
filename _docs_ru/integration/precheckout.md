@@ -136,3 +136,30 @@ window.flocktory.push(['removeFromCart', {
 
 Если вы передаете [Enhanced Ecommerce](https://support.google.com/analytics/answer/6014841?hl=en) в ваш Data Layer в соответствии с [инструкцией](https://developers.google.com/tag-manager/enhanced-ecommerce#cart), вам необходимо установить тэги и создать все нужные переменные в соответствии с инструкцией ниже. Все необходимые данные при этом уже находятся в Data Layer.
 
+##### Добавление в корзину
+
+```html
+<script type="text/javascript">
+  window.flocktory = window.flocktory || [];
+  window.flocktory.push(['addToCart', {
+    item: {{ecommerce.add.products}}
+  }])
+</script>
+```
+
+![Add to cart](https://assets.flocktory.com/assets/help/add_to_cart_with_data_layer-3f45b4d31ffafc4ed48136bd2d7500ef.png)
+
+##### Удаление из корзины
+
+```html
+<script type="text/javascript">
+  window.flocktory = window.flocktory || [];
+  window.flocktory.push(['removeFromCart', {
+    item: {{eccommerce.remove.products}}
+  }])
+</script>
+```
+![Remove from cart](https://assets.flocktory.com/assets/help/remove_from_cart_with_data_layer-4c185ce517ada29a3288c333b487bb17.png)
+
+Параметры {{ecommerce.add.products}} и {{ecommerce.remove.products}} соответствуют тому, каким образом необходимо настроить переменные в разделе Variables. На примере переменной {{ecommerce.add.products}}:
+![Params](https://assets.flocktory.com/assets/help/add_to_cart_with_data_layer-3f45b4d31ffafc4ed48136bd2d7500ef.png)
