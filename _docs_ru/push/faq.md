@@ -36,3 +36,6 @@ Check [Push stats glossary]({{ site.baseurl }}{% link _docs_ru/push/stats.md %})
 
 This happens when client have outdated DNS cache on his computer or network hardware.
 To clear cache on windows computer follow [this guide](https://technet.microsoft.com/en-us/library/64b84fc3-a7a1-44b4-b26b-596a643d066e).
+
+### В хроме на http сайте открывается новое окно, но нет запроса разрешение на пуши и окно не закрывается. Что делать?
+Иногда сторонние расширения и настройки браузера могут приводить к такому поведению. Нужно создать новый профиль в браузере и подписаться там.
