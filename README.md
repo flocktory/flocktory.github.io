@@ -1,6 +1,6 @@
 ## Writing docs
-English docs in [_docs_ru](docs_ru)
-Russian docs in [_docs_en](docs_en)
+English docs in [_docs_ru](_docs_ru)
+Russian docs in [_docs_en](_docs_en)
 
 Each doc should start with [front matter](http://jekyllrb.com/docs/frontmatter/). Example
 ```
