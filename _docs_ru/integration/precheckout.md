@@ -195,7 +195,7 @@ window.flocktory.push(['removeFromCart', {
 
 Если вы передаете [Enhanced Ecommerce](https://support.google.com/analytics/answer/6014841?hl=en) в ваш Data Layer в соответствии с [инструкцией](https://developers.google.com/tag-manager/enhanced-ecommerce#cart), вам необходимо установить тэги и создать все нужные переменные в соответствии с инструкцией ниже. Все необходимые данные при этом уже находятся в Data Layer.
 
-##### Добавление в корзину
+##### **Добавление в корзину**
 
 ```html
 <script type="text/javascript">
@@ -208,7 +208,7 @@ window.flocktory.push(['removeFromCart', {
 
 ![Add to cart](https://assets.flocktory.com/assets/help/add_to_cart_with_data_layer-3f45b4d31ffafc4ed48136bd2d7500ef.png)
 
-##### Удаление из корзины
+##### **Удаление из корзины**
 
 ```html
 <script type="text/javascript">
@@ -222,3 +222,64 @@ window.flocktory.push(['removeFromCart', {
 
 {% raw %}Параметры {{ecommerce.add.products}} и {{ecommerce.remove.products}} соответствуют тому, каким образом необходимо настроить переменные в разделе Variables. На примере переменной {{ecommerce.add.products}}:{% endraw %}
 ![Params](https://assets.flocktory.com/assets/help/add_to_cart_with_data_layer-3f45b4d31ffafc4ed48136bd2d7500ef.png)
+
+### Случай 2. Данные Enhanced Ecommerce НЕ передаются в ваш Data Layer
+
+Хотя это и не обязательно, мы настоятельно рекомендуем настроить передачу данных Enhanced Ecommerce в Data Layer в соответствии с [этой инструкцией](https://developers.google.com/tag-manager/enhanced-ecommerce#cart), т.к. в противном случае необходимо добавить все перечисленные далее переменные вручную (используя один из методов, предлагаемых Google Tag Manager) и передавать их нам, используя следующие скрипты.
+
+#### **Добавление в корзину**
+
+```html
+{% raw %}<script type="text/javascript">
+  window.flocktory = window.flocktory || [];
+  window.flocktory.push(['addToCart', {
+   'products': [{
+      'name': {{products.name}},
+      'id': {{products.id}},
+      'price': {{products.price}},
+      'brand': {{products.brand}},
+      'category': {{products.category}},
+      'variant': {{products.variant}},
+      'count': {{products.count}}
+     }]
+  }])
+</script>{% endraw %}
+```
+
+![Addtocart case 2 example](https://assets.flocktory.com/assets/help/add_to_cart_no_ee-020f0e2fc94571c5ec81e6ff1797f2e8.png)
+
+#### Параметры
+
+|Параметр|Переменная GTM|Значение|Обязательный параметр|
+|:-:|:-:|:-:|:-:|
+|products → name|products.name|Название добавленного товара|
+|products → id|products.id|ID товара, соответствующий ID товара из вашего YML- или GMF-файла|✓|
+|products → price|products.price|Цена добавленного товара|✓|
+|products → brand|products.brand|Бренд добавленного товара|
+|products → category|products.category|Категория добавленного товара|
+|products → variant|products.variant|Вариант добавленного товара (например, разные цвета одной модели)|
+|products → count|products.count|Количество добавленных единиц товара|✓|
+
+
+#### **Удаление из корзины**
+
+```html
+{% raw %}<script type="text/javascript">
+  window.flocktory = window.flocktory || [];
+  window.flocktory.push(['removeFromCart', {
+   'products': [{
+      'id': {{products.id}},
+      'count': {{products.count}}
+     }]
+	}]);
+</script>{% endraw %}
+```
+
+![Removefromcart case 2 example](https://assets.flocktory.com/assets/help/remove_from_cart_no_ee-353148420738ed6f504182b9311b0015.png)
+
+#### Параметры
+
+|Параметр|Переменная GTM|Значение|Обязательный параметр|
+|:-:|:-:|:-:|:-:|
+|products → id|products.id|ID товара, соответствующий ID товара из вашего YML- или GMF-файла|✓|
+|products → count|products.count|Количество добавленных единиц товара|✓|
