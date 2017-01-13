@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Получение купона"
+title:  "Obtain coupon"
 section: precheckout
 ---
 

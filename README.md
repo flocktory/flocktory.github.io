@@ -1,3 +1,5 @@
+[Flocktory documentation](https://flocktory.github.io)
+
 ## Writing docs
 English docs in [_docs_ru](_docs_ru)
 Russian docs in [_docs_en](_docs_en)
@@ -24,8 +26,16 @@ TBD
 This repo uses Jekyllrb.
 [install instructiuons](http://jekyllrb.com/docs/installation/)
 
-To run server:
+Local develompent requirements: ruby + [bundler](http://bundler.io).
+
+Instal dependencies
 ```
-jekyll serve
+bundle install
 ```
+
+Run dev server
+```
+bundle exec jekyll serve
+```
+
 Open [http://localhost:4000](http://localhost:4000)

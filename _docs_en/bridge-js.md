@@ -1,8 +1,8 @@
 ---
 layout: doc
-title:  "Brigejs"
+title:  "bridge.js"
 date:   2016-12-06 16:34:18 +0300
-section: bridge
+section: bridgejs
 ---
 
 # Bridge js doc
