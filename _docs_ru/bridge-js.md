@@ -65,12 +65,12 @@ section: bridgejs
 
 ### Примеры использования
 
-```
+```html
 <meta name="widget-config"  data-type="fixed" data-autoshow="true" data-position="top-right" width="100" height="20">
 ```
 Такой виджет покажется автоматически в верхнем правом углу
 
-```
+```html
 <meta name="widget-config"  data-type="fixed" data-position="top-right" data-left="0" data-bottom="0">
 ```
 Виджет не покажется. Но при вызове bridge.showWidget(), будет показан в левом нижнем углу.
