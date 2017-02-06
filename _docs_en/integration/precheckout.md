@@ -21,6 +21,8 @@ Integrate the Flocktory code according to the instruction below - direct integra
 
 For this module to wirk properly you should as well perform [main]({{ site.baseurl }}{% link _docs_ru/integration/general.md %}) and [postcheckout]({{ site.baseurl }}{% link _docs_ru/integration/postcheckout.md %}) integrations.
 
+<a id="auth-user"></a>
+
 ## **ID to identify the logged-in user**
 
 Place this code on all your pages:
@@ -60,6 +62,8 @@ Place this code on all your pages:
 Important ! You can create new parameters to transfer name and email address of the user or use the existing ones. However the parameter for Flocktory should not be the default values and not be empty. If existing parameters already have default values then you need to create new ones.
 
 
+<a id="category-id"></a>
+
 ## **Category ID**
 
 On all category pages place the following code:
@@ -95,7 +99,7 @@ To determine the pages on which the given tag will by launched by variables, you
 * There may be only one such tag on a page.
 * The code shoudn't be placed on product pages.
 
-
+<a id="product-id"></a>
 
 ## **Product ID**
 
@@ -105,7 +109,7 @@ On all product pages place the following code:
 <div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id="123"></div>
 ```
 
-### В Google Tag Manager
+### in Google Tag Manager
 
 ```html
 {% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id={{item_id}}></div>{% endraw %}
@@ -125,7 +129,7 @@ On all product pages place the following code:
 * This tag shoud be present only on product pages
 * ID should correspond to your product feed and the IDs passed in the cart code (see below) and Postcheckout.
 
-
+<a id="cart-code"></a>
 
 ## **Cart code**
 
@@ -178,6 +182,8 @@ window.flocktory.push(['removeFromCart', {
 	* When a user is being authorized add all the products that have preserved from previous session.
 
 <br>
+
+<a id="gtm"></a>
 
 ### in Google Tag Manager
 
