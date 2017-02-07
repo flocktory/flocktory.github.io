@@ -4,44 +4,47 @@ title:  "Push"
 section: integration
 ---
 
-Целью этой статьи является описание шагов по интеграции модуля Flocktory PushReward на вашем сайте и сделать возможным взаимодействие между сайтом и пользователем посредством push-уведомлений в мобильной и веб-версиях вашего сайта.
+Attention! In order for the module to function correctly you should integrate [Pre-Checkout]({{ site.baseurl }}{% link _docs_en/integration/precheckout.md %}) и [Post-Checkout]({{ site.baseurl }}{% link _docs_en/integration/postcheckout.md %}) as well as [main integration]({{ site.baseurl }}{% link _docs_en/integration/general.md %})
 
-**Для успешной интеграции необходимо иметь доступ и права делать следующие вещи:**
-* На вашем должен быть интегрирован модуль Precheckout, необходимый для корректной работы push-уведомлений. Если модуль Precheckout не интегрирован или вы не уверены в этом, просьба обратиться к вашему аккаунт-менеджеру во Flocktory для получения необходимой инструкции.
-* Добавлять/редактировать DNS записи вашего домена для того, чтобы создавать CNAME запись
-* Загрузить предоставленные файлы в корень вашего домена
 
-## Шаг 1: Создание CNAME записи в ваших домен DNS настройках
-Для того, чтобы push-уведомления работали на разных браузерах, вам необходимо добавить CNAME DNS запись для вашего домена в связке с серверами Flocktory. Это также необходимо по причине того, что большинство браузеров (например Chrome) будут отображать пользователю субдомен/домен, который отправляет уведомление.
+For the successful integration you need to have the rights and access to do the following things:
 
-Мы настоятельно рекомендуем называть запись «push». В этом случае ваши уведомления будут приходить от push.yourdomain.ru
+* Add/edit DNS records of your domain in order to create a new CNAME record
+* Upload provided files into the root folder of your domain(s)
 
-Для того, чтобы создать запись необходимо:
 
-1. Залогиниться в ваш DNS менеджер;
-2. Создать новую CNAME запись;
-3. Заполнить значения следующим образом:
-  * Host: push
-  * Points to: push.flocktory.com
-  * TTL: 1 день
-4. Сохранить настройки и задеплоить изменения;
+## Step 1: Create a CNAME record for your domain in the DNS settings
+In order to create the record you have to do the following:
 
-### Как проверить?
-Чтобы подтвердить корректность настройки CNAME, нужно указать получившийся адрес push.yourdomain.ru на сервисе [whatsmydns](https://www.whatsmydns.net/#CNAME) и убедиться в том, что все сервера отвечают push.flocktory.com
+1.	Login to your DNS manager
+2.	Create a new CNAME record
+3.	Enter the following information into the record:
+    * Host: push
+    * Points to: push.flocktory.com
+    * TTL: 1 day
+4.	Save the settings and deploy the changes.
 
-## Шаг 2: Загрузите manifest.json и flock_push_worker.js в корень вашего домена
+### Please mind:
+* The CNAME DNS cannot be changed for the users that have already subscribed.
+* Flocktory strongly recommends you to use “push” name record. In this case your notifications will be sent from  push.yourdomain.com
 
-Два файла (manifest.json и flock_push_worker.js) необходимы для того, чтобы разрешить отправлять push-уведомления для основных браузеров, таких как: Chrome, Yandex, Opera и так далее. Файл manifest.json предоставляет мета информацию для браузера, в то время как файл flock_push_worker.js наделяет такой возможностью вашу Precheckout интеграцию.
+### How to verify?
+In order to verify the correct setup of CNAME you can go to [whatsmydns](https://www.whatsmydns.net) and type in push.yourdomain.ru and verify that the server is linked to push.flocktory.com
 
-Для того чтобы завершить этот шаг необходимо:
+## Step 2: Upload manifest.json and flock_push_worker.js into the root folder of your domain
 
-1. Заполучить два файла (manifest.json и flock_push_worker.js) от вашего аккаунт-менеджера Flocktory;
-2. Не меняя файлы и не переименовывая их, загрузите их в корень вашего домена. Эти файлы должны быть доступны в корне (www.yourdomain.ru/[file]);
-  * Пожалуйста удостоверьтесь, что файлы существуют как в корне вашего основного домена, так и на мобильной версии (в случае если у вас другая версия для мобильного сайта, например m.yourdomain.ru);
-  * Важно! При добавлении файлов убедитесь, что для них выставлены корректные Content Type application/javascript для flock_push_worker.js
-3. Для того чтобы подтвердить все, что описано выше, просто откройте любой браузер и перейдите на http://yourdomain.ru/manifest.json и http://yourdomain.ru/flock_push_worker.js. В обоих случаях вы должны увидеть текст из файла;
+* Receive the two files (manifest.json and flock_push_worker.js) from your Flocktory account manager (or download them from your cabinet in the PushReward settings)
+* Upload the two files to the root folder of your domain. The files must be accessible from the root
 
-### Как проверить?
-Чтобы подтвердить корректность размещения предоставленных файлов, нужно просто открыть любой браузер и зайти по cсылкам http://yourdomain.ru/manifest.json и http://yourdomain.ru/flock_push_worker.js. В обоих случаях вы должны увидеть текст из файла.
 
-Поздравляем вас, вы интегрировали модуль Flocktory PushReward! Теперь вы можете продолжить настраивать сценарии с вашим аккаунт-менеджером и запускать модуль.
+#### Please mind:
+
+* Files may may be places only in the root if your site. This is a technological limitation. More info: [https://www.w3.org/TR/appmanifest/](https://www.w3.org/TR/appmanifest/)
+* Please assure that the two files are uploaded to your main domain (www.) but also to any other subdomain that you want to use to offer push notifications to your users (for example your mobile site m.yourdomain.com)
+
+#### How to verify?
+
+* In order to verify the correct installation of the provided files you can easily go to your browser and type in the file locations: http://yourdomain.com/manifest.json and http://yourdomain.com/flock_push_worker.js In both cases you should see some texts appear on your screen (and no error message).
+* Besides this part you need to make sure you have complete the Main Integration and also the Precheckout part for additional functionality.
+
+Congratulations! You have integrated the Flocktory module PushReward! Now you can continue with the setup of your first opt-in scenario together with your Flocktory account manager and launch the module.

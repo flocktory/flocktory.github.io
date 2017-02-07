@@ -16,7 +16,4 @@ This code is common for all Flocktory products and you only have to put it once 
 
 ATTENTION: you have to replace YOUR_SITE_ID with your website’s Flocktory ID.
 
-Вы всегда можете уточнить id ваших сайтов в [личном кабинете](http://flocktory.com/) — или обратиться к аккаунт-менеджеру.
 You can find your websites ID in your Flocktory admin area (Profile/MySites) in at [cabinet.flocktory.com](https://cabinet.flocktory.com/) – or request the ID from your account manager.
-
-

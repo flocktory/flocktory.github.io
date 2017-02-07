@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Поддерживаемые браузеры"
+title:  "Supported browsers"
 section: push
 ---
 
@@ -41,4 +41,3 @@ Not supported yet.
 
 ### IOS
 Not supported!
-

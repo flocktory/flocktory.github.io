@@ -5,14 +5,15 @@ section: emails
 ---
 
 ## Описание
-Письмл с брошеной корзиной отправляется клиенту, когда он набрл корзину на сайте, ничего не купил и покинул сайт. В письме перечисляются товары из корзины и есть призыв вернуться.
-Так же в письме может быть список рекомендованых товаров.
+Письмo с брошеной корзиной отправляется клиенту, когда он набрал корзину на сайте, ничего не купил и покинул сайт. В письме перечисляются товары из корзины и есть призыв вернуться.
+Также в письме может быть список рекомендованых товаров.
 
 ## Требования
 
 В письмах используется шаблонизатор [Liquid](https://shopify.github.io/liquid/).
 Письма должны работать в следующих клиентах
-* Outlook 2013 и вышы
+
+* Outlook 2013 и выше
 * Gmail web
 * Mailru web
 * Yandex web
@@ -26,9 +27,7 @@ section: emails
 В письме можно использовать liquid переменные таким образом
 
 ```clojure
-{% assign special = '{{ partner_name }}' %}
-{{ special }}
-
+{% raw %}{{ partner_name }}{% endraw %}
 ```
 
 ## Список переменных
@@ -42,6 +41,7 @@ section: emails
 
 ## Фильтры в письме
 В ликвиде есть следующие фильтры
+
 * money – форматирует валюту
 * modulo – остаток от деления, использование: `{{ 12 | module:5 }}` - 2
 * round – округление цены
@@ -49,13 +49,15 @@ section: emails
 ## Итерирование по товарам
 Список **cart_items** можно использовать для итерации по товаром и отображения.
 Каждый элемент коллекции содержит следующие поля
+
 * title – название товара
 * price – цена
 * pic-url – картинка товара
+
 Пример итерации по товарам:
 
 ```clojure
-<table>
+{% raw %}<table>
 {% for cart_item in cart_items %}
   <tr>
     <td>{{ cart_item.title }}</td>
@@ -63,12 +65,13 @@ section: emails
     <td>{{ cart_item.price | money }} РУБЛЕЙ</td>
   </tr>
 {% endfor %}
-</table>
+</table>{% endraw %}
 ```
 
 ## Итерирование по рекомендованным товарам
 Список **recommended_items** содержит рекомендованные пользователю товары.
 Каждый эелемент списка содержит следующие поля:
+
 * title – название
 * pic-url - ссылка на картинку
 * url - ссылка на элемент
@@ -76,7 +79,7 @@ section: emails
 Пример итерации по рекомендованным товарам с разбивкой по три (стили вырезаны)
 
 ```clojure
-<table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333333;">
+{% raw %}<table width="100%" style="border-spacing:0;border-collapse:collapse;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;color:#333333;">
   <tbody>
     <tr>{% assign inrow = 3 %}{% for item in recommended_items limit: 6 %}{% assign mod = forloop.index | modulo: inrow %}
       <td width="33%" valign="top" style="padding:0;">
@@ -127,7 +130,7 @@ section: emails
       </td>{% if mod == 0 and forloop.last != true %}</tr>
     <tr>{% endif %}{% endfor %}</tr>
   </tbody>
-</table>
+</table>{% endraw %}
 ```
 
 
