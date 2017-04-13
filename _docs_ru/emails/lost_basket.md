@@ -36,6 +36,7 @@ section: emails
 * site_url – адрес сайта партнёр
 * unsubscribe_url – ссылка "отписаться"
 * motivation_reward_url – ссылка на мотивацию. Обычно это ссылка на кнопках вида "Получить скидку"
+* motivation_reward_coupon - код купона
 
 ## Переменные с товарами
 массив объектов
