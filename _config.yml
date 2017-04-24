@@ -29,4 +29,5 @@ sections_order:
 - emails
 - precheckout
 - push
+- utilities
 - bridgejs
