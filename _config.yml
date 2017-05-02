@@ -30,4 +30,4 @@ sections_order:
 - precheckout
 - push
 - utilities
-- bridgejs
+- widget
