@@ -70,4 +70,4 @@ section: widget
 ```html
 <meta name="widget-config"  data-type="fixed" data-position="top-right" data-left="0" data-bottom="0">
 ```
-Виджет не покажется. Но при вызове bridge.showWidget(), будет показан в левом нижнем углу.
+Виджет не покажется. Но при вызове widget.show(), будет показан в левом нижнем углу.
