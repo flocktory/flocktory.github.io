@@ -63,7 +63,7 @@ section: widget
 # Примеры использования
 
 ```html
-<meta name="widget-config"  data-type="fixed" data-autoshow="true" data-position="top-right" width="100" height="20">
+<meta name="widget-config"  data-type="fixed" data-autoshow="true" data-position="top-right" data-width="100" data-height="20">
 ```
 Такой виджет покажется автоматически в верхнем правом углу
 
