@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Статистика push виджетов"
+title:  "Push widgets stats"
 section: push
 ---
 
@@ -10,8 +10,7 @@ section: push
 | push-unsupported |  no |  Is sent every time user visits a page using a browser not supporting push or using incognito feature and campaign conditions are satisfied |
 | push-subscribed | yes | When user subscribes to push inside the system dialog |
 | push-denied | yes | When user blocks push inside the system dialog |
-| push-already-subscribed | no |   |
-| Each | time | when campaign's triggers passed, but user has already subscribed. |
+| push-already-subscribed | no | Each time when campaign's triggers passed, but user has already subscribed |
 | push-already-denied | no |  Each time when campaign's triggers passed, but user has already blocked notifications. |
 
 

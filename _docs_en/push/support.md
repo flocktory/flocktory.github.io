@@ -19,7 +19,7 @@ OS X > 10.9
 44+
 
 ### Opera
-Not supported yet.
+42+
 
 ## Mobile
 
