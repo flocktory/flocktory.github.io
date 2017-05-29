@@ -106,28 +106,33 @@ To determine the pages on which the given tag will by launched by variables, you
 On all product pages place the following code:
 
 ```html
-<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id="123"></div>
+<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id="123" data-fl-item-category-id="1" data-fl-item-vendor="Nike" data-fl-item-available="true"></div>
 ```
 
 ### in Google Tag Manager
 
 ```html
-{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id={{item_id}}></div>{% endraw %}
+{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id={{item_id}} data-fl-item-category-id={{item_category_id}} data-fl-item-vendor={{item_category_id}} data-fl-item-available={{item_availability}}></div>{% endraw %}
 ```
 
-![GTM int](https://assets.flocktory.com/assets/help/product_pages-7d492acef5bc9be86b7a900095727bf2.png)
+![GTM int](https://assets.flocktory.com/uploads/clients/1833/7b776de6-4d4b-46bb-9050-525413eb8a5d_Monosnap%202017-05-29%2020-33-28.png)
 
 ### Parameters
 
 | Parameter | HTML            | GTM variable    |         Value                                  |
 |:---------:|:---------------:|:---------------:|:----------------------------------------------:|
 | item → id | data-fl-item-id	| item_id         | category ID that corresponds to the category ID used in your YML or GMF file |
+| item → category → id | data-fl-item-сategory-id   | item_category_id | **optional** product category id|
+| item → vendor | data-fl-item-vendor   | item_vendor         | **optional** product vendor name|
+| item → available | data-fl-item-available   | item_availability         | **optional** Product availability|
 
 <br>
 
 ### Please mind:
 * This tag shoud be present only on product pages
 * ID should correspond to your product feed and the IDs passed in the cart code (see below) and Postcheckout.
+* If you decide not to implement optional parameters, don't add the corresponding attributes to the tag
+* If an optional parameter is absent for some part of products, the patameter's value should be an empty string in these cases
 
 <a id="cart-code"></a>
 
@@ -166,6 +171,7 @@ window.flocktory.push(['removeFromCart', {
 | item → id    | product ID that corresponds to the product ID in your YML or GMF file |
 | item → price | Price of added product                                            |
 | item → count | Count of added products                                           |
+
 
 <br>
 

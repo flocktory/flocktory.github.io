@@ -40,7 +40,7 @@ section: integration
 
 ### Параметры
 
-| Параметр     | HTML               | Переменная GTM  |         Знычение                               |
+| Параметр     | HTML               | Переменная GTM  |         Значение                               |
 |:------------:|:------------------:|:---------------:|:----------------------------------------------:|
 | user → name  | data-fl-user-name	| user_name       | Полное имя пользователя. Например: Ivan Petrov |
 | user → email | data-fl-user-email	| user_email      | Email пользователя. Например: ivan@petrov.ru   |
@@ -111,28 +111,34 @@ section: integration
 На всех страницах товаров на вашем сайте вставьте следующий код:
 
 ```html
-<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id="123"></div>
+<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id="123" data-fl-item-category-id="1" data-fl-item-vendor="Nike" data-fl-item-available="true"></div>
 ```
 
 ### В Google Tag Manager
 
 ```html
-{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id={{item_id}}></div>{% endraw %}
+{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id={{item_id}} data-fl-item-category-id={{item_category_id}} data-fl-item-vendor={{item_category_id}} data-fl-item-available={{item_availability}}></div>{% endraw %}
 ```
 
-![GTM int](https://assets.flocktory.com/assets/help/product_pages-7d492acef5bc9be86b7a900095727bf2.png)
+![GTM int](https://assets.flocktory.com/uploads/clients/1833/7b776de6-4d4b-46bb-9050-525413eb8a5d_Monosnap%202017-05-29%2020-33-28.png)
 
 ### Параметры
 
 | Параметр  | HTML            | Переменная GTM  |         Значение                               |
 |:---------:|:---------------:|:---------------:|:----------------------------------------------:|
 | item → id | data-fl-item-id	| item_id         | ID товара, соответствующий ID товара из вашего YML- или GMF-файла |
+| item → category → id | data-fl-item-сategory-id   | item_category_id | **опциональный параметр** ID категории товара|
+| item → vendor | data-fl-item-vendor   | item_vendor         | **опциональный параметр** Название вендора товара|
+| item → available | data-fl-item-available   | item_availability         | **опциональный параметр** Наличие товара (есть на складе (true или false))|
+
 
 
 ### На что обратить внимание:
 * Информация передается только на соответствующих страницах - карточках товара.
 * data-fl-item-id товара, соответствующий записи в YML файле
 * id должен соответствовать данным, передаваемым при добавлении.
+* Если вы решили не поддерживать описанные опциональные параметры, соответствующий атрибуты нужно опустить.
+* Если опциональный параметр отсутствует для части продуктов, в этом случае нужно передавать пустую строку как значение соответствующего атрибута
 
 <a id="cart-code"></a>
 
