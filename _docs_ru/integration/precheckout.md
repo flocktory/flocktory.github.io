@@ -4,7 +4,7 @@ title:  "Precheckout"
 section: integration
 ---
 
-Внимание! Перед подключением модуля Exchange необходимо произвести [общую интеграцию]({{ site.baseurl }}{% link _docs_ru/integration/general.md %}) и интеграцию [Post-Checkout]({{ site.baseurl }}{% link _docs_ru/integration/postcheckout.md %})
+Внимание! Перед подключением модуля необходимо произвести [общую интеграцию]({{ site.baseurl }}{% link _docs_ru/integration/general.md %}) и интеграцию [Post-Checkout]({{ site.baseurl }}{% link _docs_ru/integration/postcheckout.md %})
 
 ## Запуск базового набора механик, включенных в модуль Pre-Checkout
 
