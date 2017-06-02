@@ -59,6 +59,12 @@ section: widget
 
   Указывает конкретное значение css свойства z-index.
 
+- `data-overlay-background`
+
+  Цвет фона попапа (hex, rgb, rgba)
+
+  **Работает только для `popup` виджетов.**
+
 
 # Примеры использования
 
@@ -66,6 +72,7 @@ section: widget
 <meta name="widget-config"  data-type="fixed" data-autoshow="true" data-position="top-right" data-width="100" data-height="20">
 ```
 Такой виджет покажется автоматически в верхнем правом углу
+
 
 ```html
 <meta name="widget-config"  data-type="fixed" data-position="top-right" data-left="0" data-bottom="0">
