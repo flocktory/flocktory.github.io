@@ -73,7 +73,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 7. пользователь оставил емейл
 ```
-curl 'https://api.flocktory.com/u_shaman/precheckout-campaigns.js?uuid=123&body={"site-id":"1833","utm":{"source":"","medium":"","campaign":""},"email-profile":{"email":"johnny.appleseed@gmail.com","name":"Johnny Appleseed"}}&callback=f' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uuid":"123","profile":{"email":"asd@asd.ru","name":"johnny"}}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
 ```
 
 8. для пользователя получена Push подписка.
