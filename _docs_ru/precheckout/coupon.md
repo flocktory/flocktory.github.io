@@ -13,9 +13,41 @@ section: precheckout
 ![create.jpg](https://assets.flocktory.com/uploads/clients/1559/57bc8052-aecf-4b6d-8c01-e8142c4a3a6c_assign-coupon.jpg)
 
 # Получение купона
+
+## Легкие виджеты
+Легкий виджет рендерится на сервере. Никаких дополнительных действий для получения купона делать ненужно.
+Доступные переменные:
+
+* код купона
+```clojure
+{% raw %} {{ motivation_reward_coupon }} {% endraw %}
+```
+
+* ссылка на получение вознаграждения
+```clojure
+{% raw %} {{ motivation_reward_url }} {% endraw %}
+```
+
+* значение вознаграждения
+```clojure
+{% raw %} {{ motivation_value }} {% endraw %}
+```
+
+    **Пример:** к виджету в кампании привязана мотивация 500 рублей. motivation_value будет &laquo;500 рублей&raquo;
+
+
+* значение вознаграждения со словом &laquo;скидка&raquo;
+ ```clojure
+ {% raw %} {{ reward_value }} {% endraw %}
+ ```
+
+    **Пример:** к виджету привязана мотивация 500 рублей. motivation_value будет равен &laquo;скидка 500 рублей&raquo;
+
+
+## Bridge (deprecated)
 После загрузки виджета нужно вызвать метод `bridge.getCoupon()`. Метод вернёт Promise с объектом-купоном.
 Поля объекта
-* code — код купонма
+* code — код купона
 * link – ссылка на получение вознаграждения
 
 Пример получения купона:
