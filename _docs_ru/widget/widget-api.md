@@ -52,6 +52,19 @@ widget.configure(object)
   **Работает только для fixed виджетов.**
 
 
+- `zIndex` - управляет z-index виджета
+
+
+  **Работает для виджетов типа fixed и embedded. Для типа виджета popup z-index проставляется равным 2000000000.**
+
+
+- `overlayBackground` - цвет оверлея виджета
+
+
+  **Работает для виджетов типа popup.**
+
+
+
 
 
 **Пример:** Попап-виджет шириной 400px, высотой 300px
@@ -61,6 +74,7 @@ widget.configure({
   type: 'popup',
   width: 400,
   height: 300,
+  overlayBackground: 'rgba(0,0,0,0.8)'
 });
 ```
 
@@ -71,7 +85,8 @@ widget.configure({
   type: 'fixed',
   width: 450,
   height: 360,
-  position: 'center-left'
+  position: 'center-left',
+  zIndex: 100500
 });
 ```
 

@@ -57,7 +57,7 @@ section: widget
   **Наличие любого из свойств top, bottom, left, right отменяет это свойство!**
 - `data-z-index`
 
-  Указывает конкретное значение css свойства z-index.
+  Указывает конкретное значение css свойства z-index. Работает для виджетов типа fixed и embedded. Для типа виджета popup z-index проставляется равным 2000000000
 
 - `data-overlay-background`
 
