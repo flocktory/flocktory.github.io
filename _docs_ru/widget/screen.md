@@ -11,7 +11,7 @@ section: widget
 
 # Механизм работы
 
-При запуске виджета всем скринам кроме первого по коду задается `display: none;`. В результате мы видим только первый скрин. Дальнейшее переключение скринов осуществляется через метод `widget.setScreen`.
+При запуске виджета **всем скринам кроме первого по коду** задается `display: none;`. В результате мы видим только первый скрин. Дальнейшее переключение скринов осуществляется через метод `widget.setScreen`.
 
 `widget.setScreen(screenName)` задает всем скринам кроме `screenName` `display: none;`, а `screenName` задается `display: block;`.
 
@@ -29,7 +29,7 @@ section: widget
       body { background-color: #fff; }
     </style>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      widget.ready(function() {
         var button = document.querySelector('.js-to-reward');
         button.addEventListener('click', function() {
           widget.setScreen('reward');

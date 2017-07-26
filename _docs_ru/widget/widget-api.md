@@ -6,6 +6,40 @@ section: widget
 
 В контексте виджета доступен объект **widget**. Он предоставляет ряд методов, позволяющих управлять поведением на сайте, получать необходимые данные о сайте или кампании.
 
+## widget.ready
+
+```javascript
+widget.ready(callback);
+```
+
+**Описание**
+
+Метод получает callback-функцию, которая будет выполнена после загрузки и инициализации виджета. Срабатывает `widget.ready` после наступления **load** события объекта `window`. К этому моменту все ресурсы виджета загружены (стили, js, картинки).
+
+**Вся логика взаимодействия с виджетом должна выполняться после вызова ```widget.ready```.**
+
+**Пример:**
+```javascript
+widget.ready(function() {
+  var $conditions = document.querySelector('.js-conditions-container');
+
+  document.querySelector('.js-toggle-conditions').addEventListener('click', function() {
+    $conditions.classList.toggle('is-visible');
+  });
+
+  // позиционируем виджет
+  widget.configure({
+    type: 'popup',
+    height: 500,
+    width: 500
+  });
+  widget.show();
+});
+
+```
+
+## widget.configure
+
 ```javascript
 widget.configure(object)
 ```
@@ -90,3 +124,17 @@ widget.configure({
 });
 ```
 
+
+
+## widget.getData
+
+```javascript
+var widgetData = widget.getData(); // {cid: "100500", siteId: 1559}
+```
+
+**Описание**
+
+Возвращает объект, содержащий id сайта и кампании.
+
+- `cid  (String)` - id кампании
+- `siteId (Number)` - id сайта
