@@ -4,7 +4,7 @@ title:  "Widget API"
 section: widget
 ---
 
-В контексте виджета доступен объект **widget**. Он предоставляет ряд методов, позволяющих управлять поведением на сайте, получать необходимые данные о сайте или кампании.
+В контексте виджета доступен объект **widget**. Он предоставляет ряд методов, позволяющих управлять поведением виджета на сайте, получать необходимые данные о сайте или кампании.
 
 ## widget.ready
 
@@ -125,7 +125,6 @@ widget.configure({
 ```
 
 
-
 ## widget.getData
 
 ```javascript
@@ -138,3 +137,130 @@ var widgetData = widget.getData(); // {cid: "100500", siteId: 1559}
 
 - `cid  (String)` - id кампании
 - `siteId (Number)` - id сайта
+
+
+## widget.collectEmail
+
+```javascript
+  widget.collectEmail(email, name, data).then(function(){})
+```
+
+
+**Описание**
+
+Используется для сбора имейла, имени, дополнительных данных, оставленных пользователем в виджете.
+
+
+**Параметры**
+
+- `email (String)` - имейл пользователя. Обязательный параметр.
+- `name (String)` - имя пользователя. Необязательный параметр.
+- `data (Object)` - объект в формат ключ/значение. Необязательный параметр.
+
+**Возвращаемое значение**
+
+Promise-объект
+
+**Пример: отправить имейл, имя, дополнительные данные**
+```javascript
+  widget.collectEmail('keks@gmail.com', 'Эдуард', {phone: '88002000600', decision: 'true'}).then(function() {
+    widget.setScreen('thank-you');
+  });
+```
+
+
+**Пример: отправить только имейл**
+```javascript
+  widget.collectEmail('gunman@mailbox.net').then(function() {
+    widget.setScreen('thank-you');
+  });
+```
+
+
+## widget.show
+
+```javascript
+widget.show();
+```
+
+
+**Описание**
+
+Позволяет показать виджет.
+
+**Важно**: при вызове метода в аналитику отправляется событие `show-widget`, поэтому достаточно одного вызова ```widget.show()``` на виджет.
+
+
+## widget.hide
+
+```javascript
+widget.hide(seconds);
+```
+
+**Параметры**
+
+- `seconds (Number)` - время закрытия кампании в секундах. Необязательный параметр.
+
+**Описание**
+
+Позволяет скрыть виджет. Полезен, если перед закрытием нужно добавить анимацию или другую логику. Если виджет должен закрываться по клику на элеменет
+без дополнительной логики -- испоьзуйте атрибут `data-fl-close`.
+
+**Пример:** Добавить css-класс html-элементу, после чего скрыть виджет на 30 минут.
+```javascript
+$closeEl.addEventListener('click', function() {
+  $widgetEl.classList.add('fade-out');
+
+  setTimeout(function(){
+    widget.hide(1800);
+  }, 300)
+});
+```
+
+**Пример:** Добавить css-класс html-элементу, после чего скрыть виджет. При обновлении страницы виджет покажется снова, если выполнятся настройки срабатывания кампании.
+```javascript
+$closeEl.addEventListener('click', function() {
+  $widgetEl.classList.add('fade-out');
+
+  setTimeout(function(){
+    widget.hide();
+  }, 300)
+});
+```
+
+## widget.setScreen
+
+```javascript
+  widget.setScreen(screenName);
+```
+
+**Параметры**
+
+- `screenName (String)` - название состояния виджета (скрин), указывается через атрибут `data-fl-screen`
+
+**Описание**
+
+Позволяет переключаться между состояниями виджета (скринами). Более детально в разделе [Виджет с несколькими шагами](/ru/widget/screen/).
+
+**Пример: показать скрин пользовательского соглашения по клику на псевдоссылку**
+
+```javascript
+$agreementPseudo.addEventListener('click', function() {
+  widget.setScreen('agreement');
+});
+```
+
+
+## widget.track
+
+```javascript
+  widget.track(eventName);
+```
+
+**Параметры**
+
+- `eventName (String)` - имя события
+
+**Описание**
+
+Отправляет событие в аналитику. Более детально в разделе [Аналитика](/ru/widget/analytics/).
