@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Скопировать купон"
+title:  "Копирование"
 section: utilities
 ---
 
@@ -13,7 +13,7 @@ section: utilities
 Подключение скрипта:
 
 ```html
-<script type="text/javascript" src="https://assets.flocktory.com/u_widget/js/shared/coreClipboard-7e7e1f3e21.js"></script>
+<script type="text/javascript" src="https://assets.flocktory.com/u_widget/js/shared/coreClipboard-0d8a24717c.js"></script>
 ```
 
 **ВАЖНО:** брать ссылку на скрипт именно из дефолтного виджета, потому что там содержится самая последняя версия
@@ -34,4 +34,4 @@ section: utilities
 ```
 
 ### Поддержка браузеров
-Chrome 42+, Firefox 41+, Safari 10+, Opera 29+, MSIE 9+, Edge 12+
+Chrome 42+, Firefox 41+, Safari 10+ на macOS и iOS, Opera 29+, MSIE 9+, Edge 12+
