@@ -72,13 +72,15 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 ```
 
 7. пользователь оставил емейл
+используйте данный код при авторизации пользователя в приложении и других случаях, когда пользователь оставляет емейл (например, при подписке на новостную рассылку)
 ```
 curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uuid":"123","profile":{"email":"asd@asd.ru","name":"johnny"}}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
 ```
 
 8. для пользователя получена Push подписка.
+вместо многоточия подставьте [полученный при подписке токен](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))
 ```
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"platform":"chrome","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","url":"http://spreadreward.com/","provider-meta":[{"key":"auth","value":"..."},{"key":"p256dh","value":"..."}]}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"platform":"chrome","site-id":"1833","token":"https://android.googleapis.com/gcm/send/..."}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 
 
