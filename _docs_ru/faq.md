@@ -8,5 +8,5 @@ section: general
 На стороне клиента потребуется:
 
 * Создать HTTP endpoint, принимающий на вход обязательный параметр `email`
-* Endpoint должен отвечать либо `{status: 'new'}` , либо `{status: 'exists'}`
+* Endpoint должен отвечать либо `{"status": "new"}` , либо `{"status": "exists"}`
 * CORS-заголовки должны быть настроены соответствущим образом (например, `Access-Control-Allow-Origin: *`)
