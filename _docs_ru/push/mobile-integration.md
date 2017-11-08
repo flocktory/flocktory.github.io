@@ -39,7 +39,7 @@ section: push
 
 ### Часть 1. Передача информации во Flocktory.
 
-Необходимо передавать следующую информацию и события (в качестве примеров приведены curl запросов; в параметр site необходимо передавать id, соответствующий вашему сайту в системе Flocktory; в папаметр url необходимо передавать deep-link, который позволит Flocktory посадить пользоватля на эту страницу; параметр body должен быть в виде urlencoded):
+Необходимо передавать следующую информацию и события (в качестве примеров приведены curl запросов; в параметр site необходимо передавать id, соответствующий вашему сайту в системе Flocktory; в параметр url необходимо передавать deep-link, который позволит Flocktory посадить пользоватля на эту страницу; параметр body должен быть в виде urlencoded):
 
 1. пользователь совершил заказ
 ```
@@ -97,9 +97,9 @@ curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&bo
 
 _Вариант 1. Сбор мобильных Push уведомлений еще не ведется._
 
-В этом случае мы советуем использовать firebase.google.com
+В этом случае мы советуем использовать [firebase.google.com](https://firebase.google.com)
 
-Большинство проектов так или иначе уже имеют у себя в зависимостях firebase. Установка данного SDK, позволяет работать со всем стандартным функционалом.
+Большинство проектов так или иначе уже имеют у себя в зависимостях firebase. Установка данного SDK позволяет работать со всем стандартным функционалом.
 
 Примечания:
 
@@ -123,9 +123,9 @@ Flocktory отсылает Push уведомления в GCM/FCM/APN  в неи
 
 Ссылки на спецификации от GCM:
 
-* получение Push подписок https://developers.google.com/cloud-messaging/android/client и https://developers.google.com/cloud-messaging/ios/client
+* получение Push подписок: [android](https://developers.google.com/cloud-messaging/android/client) и [ios](https://developers.google.com/cloud-messaging/ios/client)
 
-* получение Push уведомлений https://developers.google.com/cloud-messaging/downstream
+* [получение Push уведомлений](https://developers.google.com/cloud-messaging/downstream)
 
 ## 4. Статистика
 
