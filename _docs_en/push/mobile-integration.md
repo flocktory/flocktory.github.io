@@ -37,39 +37,71 @@ Here you can see the required curl requests examples.
 
 1. User makes an order
 ```
-curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"s":"m","t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790,"custom_data":{}}},"ga":{"utmcsr":"flowdock.com","utmccn":"referral","utmcmd":"referral","pageviews":17,"previous_visit_ts":1492714292,"current_visit_at":1492775373}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* site_id - Flocktory ID of your site
+* i - order ID
+* e - user's email
+* n - user's name
+* p - order price
+* t - order products array structured like this {"0":{},"1":{} ... }
+* t-*-i - product ID
+* t-*-t - product title
+* t-*-u - link to the product's image (optional)
+* t-*-с - amount of the product ordered
+* t-*-p - price of the product
 
 2. Product view event
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
+* links.yandex_offer - product ID
+* links.site - Flocktory ID of your site
+* payload.url - product deep-link
 
 3. Category view
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.category_visit","links":{"yandex_category":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
+* links.yandex_category - category ID
+* links.site - Flocktory ID of your site
+* payload.url - category deep-link
 
 4. Page view
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"session.page_visit","payload":{"resolution":"1366x741","ga":{"utmcsr":"","utmccn":"","utmcmd":"","h_utmcsr":"","h_utmccn":"","h_utmcmd":""},"url":"http://spreadreward.com/"},"links":{"site":1833}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* payload.resolution - device screen resolution
+* payload.ga - leave these values blank, as in the example
+* payload.url - deep-link to the page being viewed
+* links.site - Flocktory ID of your site
 
 5. User adds a product to cart
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.add_to_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","price":832,"count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* links.yandex_offer - product ID
+* links.site - Flocktory ID of your site
+* payload.count - the amont of product being added
+* payload.price - price of the product
 
 6. User removes a product from cart
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.remove_from_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* links.yandex_offer - product ID
+* links.site - Flocktory ID of your site
+* payload.count - the amont of product being removed
+* payload.price - price of the product
 
 7. User leaves an email
 Use this request when user authorizes in the app, subscribes to a mailing list and any other case when they leaves and email.
 ```
 curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uuid":"123","profile":{"email":"asd@asd.ru","name":"johnny"}}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
 ```
+* siteId - Flocktory ID of your site
+* profile.email - user's email
+* profile.name - user's name
 
 8. User's subscription has been acquired
 * replace ... with the [token received](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))

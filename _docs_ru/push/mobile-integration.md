@@ -43,39 +43,72 @@ section: push
 
 1. пользователь совершил заказ
 ```
-curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"s":"m","t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790,"custom_data":{}}},"ga":{"utmcsr":"flowdock.com","utmccn":"referral","utmcmd":"referral","pageviews":17,"previous_visit_ts":1492714292,"current_visit_at":1492775373}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* site_id - id вашего сайта в системе Flocktory
+значения в body
+* i - id заказа
+* e - email пользователя
+* n - имя (и фамилия) пользователя
+* p - общая стоимость заказа
+* t - массив товаров заказа вида {"0":{},"1":{} ... }
+* t-*-i - id товара
+* t-*-t - название товара
+* t-*-u - ссылка на изображение товара (опционально)
+* t-*-с - количество
+* t-*-p - цена за единицу
 
 2. пользователь просмотрел товар
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
+* links.yandex_offer - id товара
+* links.site - id вашего сайта в системе Flocktory
+* payload.url - диплинк на страницу товара
 
 3. пользователь просмотрел категорию
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.category_visit","links":{"yandex_category":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
+* links.yandex_category - id категории
+* links.site - id вашего сайта в системе Flocktory
+* payload.url - диплинк на страницу категории
 
 4. пользователь просмотрел страницу
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"session.page_visit","payload":{"resolution":"1366x741","ga":{"utmcsr":"","utmccn":"","utmcmd":"","h_utmcsr":"","h_utmccn":"","h_utmcmd":""},"url":"http://spreadreward.com/"},"links":{"site":1833}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* payload.resolution - разрешение экрана устройства
+* payload.ga - здесь оставляйте значения пустыми, Как указанов примере
+* payload.url - диплинк на просматриваемую страницу
+* links.site - id вашего сайта в системе Flocktory
 
 5. пользователь добавил что-то в корзину
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.add_to_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","price":832,"count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* links.yandex_offer - id товара
+* links.site - id вашего сайта в системе Flocktory
+* payload.count - количество добавленных единиц товара
+* payload.price - цена за единицу
 
 6. пользователь удалил что-то из корзины
 ```
 curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.remove_from_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
+* links.yandex_offer - id товара
+* links.site - id вашего сайта в системе Flocktory
+* payload.count - количество удаленных единиц товара
+* payload.price - цена за единицу
 
 7. пользователь оставил емейл
 используйте данный код при авторизации пользователя в приложении и других случаях, когда пользователь оставляет емейл (например, при подписке на новостную рассылку)
 ```
 curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uuid":"123","profile":{"email":"asd@asd.ru","name":"johnny"}}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
 ```
+* siteId - id вашего сайта в системе Flocktory
+* profile.email - емейл пользоватлея
+* profile.name - имя пользователя
 
 8. для пользователя получена Push подписка.
 * вместо многоточия подставьте [полученный при подписке токен](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))
