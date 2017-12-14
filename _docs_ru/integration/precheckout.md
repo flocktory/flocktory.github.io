@@ -226,7 +226,7 @@ window.flocktory.push(['removeFromCart', {
 <script type="text/javascript">
   window.flocktory = window.flocktory || [];
   window.flocktory.push(['removeFromCart', {
-    item: {% raw %}{{eccommerce.remove.products}}{% endraw %}
+    item: {% raw %}{{ecommerce.remove.products}}{% endraw %}
   }])
 </script>
 ```
