@@ -116,8 +116,10 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uui
 ```
 curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/..."}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
-
-
+В случае если вы решили использовать отдельный firebase проект для работы с нотификациями в приложении, нужно при подписке передавать в запросе используемый gcm-sender-id следующим образом:
+```
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"}}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+```
 ### Часть 2. Сбор и обработка пуш уведомлений.
 
 Возможны два варианта:

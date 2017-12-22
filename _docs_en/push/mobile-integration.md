@@ -109,7 +109,10 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uui
 ```
 curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/..."}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
-
+In case you decided to use a separate project for app pushes, please also pass the corresponding gcm-sender-id in the request like this
+```
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"}}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+```
 
 ### 3.2 Push supscription and notifications processing.
 
