@@ -120,6 +120,7 @@ curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&bo
 ```
 curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"}}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
+
 ### Часть 2. Сбор и обработка пуш уведомлений.
 
 Возможны два варианта:
