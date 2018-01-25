@@ -41,6 +41,7 @@ widget-api – подход к разработке виджетов основ�
 Скрыть виджет на время сессии | ```bridge.hideWidgetOnPeriod()``` | ``` widget.hide(1800) ```
 Отправка данных из email-сборщиков | ```bridge.login({email: email, name: name, data: {decision: 'true'})``` | ```widget.collectEmail(email, name, {'subscription': 'true'})```
 Отправка данных из виджетов-опроса | ```bridge.customerActions({emai: email, name: name, isTest: 'on'}});``` | ```widget.collectEmail(email, name, {'test': 'true'})```
+Трекинг | ```bridge.trackGA``` | ```widget.track```
 
 
 [Детально про методы widget-api]({{ site.baseurl }}{% link _docs_ru/widget/widget-api.md %})
