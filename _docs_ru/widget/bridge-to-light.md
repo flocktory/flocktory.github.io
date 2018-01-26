@@ -16,6 +16,16 @@ widget-api – подход к разработке виджетов основ�
 
 <br>
 
+## Как подключать widget-api
+<img src="https://assets.flocktory.com/uploads/clients/1559/c82b9e3e-1183-495e-b16c-f98e9bec3b99_widget-is-not-defined.jpg">
+
+Для работы с новым api, ничего подключать не треубется. Достаточно удалить любое упоминание ссылки на bridge.js ```api.flocktory.com/v2/bridge.js``` из виджета.
+
+**Важно:** надо именно удалить ссылку, а не закомментировать, иначе js-api будет думать, что виджет все еще использует bridge.js.
+
+<br>
+
+
 ## Декларативные конструкции bridge и аналог в widget-api
 
 Описание | bridge.js | widget-api |
@@ -41,7 +51,16 @@ widget-api – подход к разработке виджетов основ�
 Скрыть виджет на время сессии | ```bridge.hideWidgetOnPeriod()``` | ``` widget.hide(1800) ```
 Отправка данных из email-сборщиков | ```bridge.login({email: email, name: name, data: {decision: 'true'})``` | ```widget.collectEmail(email, name, {'subscription': 'true'})```
 Отправка данных из виджетов-опроса | ```bridge.customerActions({emai: email, name: name, isTest: 'on'}});``` | ```widget.collectEmail(email, name, {'test': 'true'})```
+Трекинг | ```bridge.trackGA``` | ```widget.track```
+Обработчик после передачи данных | ```bridge.events.on('logged', function(){bridge.setScreen('success')})``` | ```widget.collectEmail(email, name, data).then(function(){widget.setScreen('success');})```
+Вызов кастомного события из виджета | ```bridge.fireCustomEvent('eventName');``` | ```window.parent.flocktory.push(['fireEvent', { event: 'eventName' }])```
+Выход в контекст сайта | ``` bridge.callFn(function(){ dataLayer.push({event: 'someEvent'}) }) ``` | ```window.parent.dataLayer.push({event: 'someEvent'})```
+Привязка мета-данных профилю пользователя | ``` bridge.attachToProfile({'birthDate':'12.12.1990'})``` | ```parent.flocktory.push(['attachToProfile', {data: {'birthDate': '12.12.1990'}}]); ```
+Получение данных пользователя | ``` var user = bridge.getData().user; ``` | ``` var user = parent.flocktory.getData().user; ```
+Получение вспомогательных данных. Например: id кампании или сайта | ``` var data = bridge.getData(); ``` | ``` var data = widget.getData(); ```
 
+
+<br>
 
 [Детально про методы widget-api]({{ site.baseurl }}{% link _docs_ru/widget/widget-api.md %})
 
