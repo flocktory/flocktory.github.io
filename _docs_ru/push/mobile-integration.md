@@ -101,7 +101,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 * payload.count - количество удаленных единиц товара
 * payload.price - цена за единицу
 
-7. пользователь оставил емейл
+7. пользователь оставил емейл<br>
 используйте данный код при авторизации пользователя в приложении и других случаях, когда пользователь оставляет емейл (например, при подписке на новостную рассылку)
 ```
 curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uuid":"123","profile":{"email":"asd@asd.ru","name":"johnny"}}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
