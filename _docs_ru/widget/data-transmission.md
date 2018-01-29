@@ -38,3 +38,24 @@ order: 4
 ```email (String)``` – email пользователя. Обязательный параметр.
 
 ```data (Object)``` – объект с дополнительными параметрами, **ключи могут отличаться в зависимости от клиента**. Необязательный параметр.
+
+<br>
+
+## DataLayer
+
+
+**Пример:** Добавление события в dataLayer клиента, что был оставлен email
+
+```javascript
+  widget.collectEmail(email).then(function() {
+    widget.setScreen('success');
+
+    try{
+      parent.dataLayer.push({
+        event: 'fl_collected_email',
+        email: email
+      });
+    }
+    catch(e){}
+  })
+```
