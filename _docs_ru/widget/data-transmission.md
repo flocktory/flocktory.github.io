@@ -5,6 +5,72 @@ section: widget
 order: 4
 ---
 
+## Во Flocktory
+
+Есть виджеты типа сборщик имейлов, виджеты-опросы, где нужно данные, полученные от пользователя передавать во Flocktory.
+Для этого есть метод [widget.collectEmail]({{ site.baseurl }}{% link _docs_ru/widget/widget-api.md %}). Ниже примеры, как его использовать
+
+**Если нет email, name**
+
+```javascript
+/*
+data – данные опроса, формате ключ - значение
+Например: {'sex': 'female', 'age': '18+'}
+*/
+widget.collectEmail(null, null, data).then(function(){
+  widget.setScreen('success');
+});
+```
+
+**Если есть email, data, но нет name**
+
+```javascript
+widget.collectEmail(email, null, data).then(function(){
+  widget.setScreen('success');
+});
+```
+
+**Если только email**
+
+```javascript
+widget.collectEmail(email).then(function(){
+  widget.setScreen('success');
+});
+```
+
+**Если в data какое-то поле пустое, то не передаем его**
+
+
+*Пример: пользователь указал возраст, а пол не указал*
+```javascript
+widget.collectEmail(email, name, {'age': 18}).then(function(){
+  widget.setScreen('success');
+});
+```
+
+*Пример: пользователь указал возраст и пол*
+```javascript
+widget.collectEmail(email, name, {'sex': 'female', 'age': 18}).then(function(){
+  widget.setScreen('success');
+});
+```
+
+**Бывает, что в виджете нет поля для ввода имейла, но нужно отправить имейл во flocktory, если клиент передал его в интеграции**
+
+```javascript
+var email = null;
+try {
+  email = parent.flocktory.getData().user.email;
+}
+catch(e){}
+
+widget.collectEmail(email).then(function(){
+  // Действие после удачно отправки
+});
+```
+
+<br>
+
 ## Retail Rocket
 
 Бывает нужно из виджета передавать собранные данные в сторонние сервисы.
