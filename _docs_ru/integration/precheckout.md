@@ -296,7 +296,8 @@ window.flocktory.push(['removeFromCart', {
 |products → id|products.id|ID товара, соответствующий ID товара из вашего YML- или GMF-файла|✓|
 |products → count|products.count|Количество добавленных единиц товара|✓|
 
-
+<br/>
+<br/>
 
 ## Как проверить, что интеграция Pre-Checkout проведена корректно?
 
