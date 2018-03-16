@@ -143,7 +143,7 @@ var widgetData = widget.getData(); // {cid: "100500", siteId: 1559}
 ## widget.collectEmail
 
 ```javascript
-  widget.collectEmail(email, name, data).then(function(){})
+  widget.collectEmail(email, name, data, makeOffer).then(function(resp){})
 ```
 
 
@@ -154,15 +154,16 @@ var widgetData = widget.getData(); // {cid: "100500", siteId: 1559}
 
 **Параметры**
 
-- `email (String)` - имейл пользователя. Обязательный параметр.
-- `name (String)` - имя пользователя. Необязательный параметр.
-- `data (Object)` - объект в формат ключ/значение. Необязательный параметр.
+- `email (String)` – имейл пользователя. Обязательный параметр.
+- `name (String)` – имя пользователя. Необязательный параметр.
+- `data (Object)` – объект в формат ключ/значение. Необязательный параметр.
+- `makeOffer (Boolean)` – boolean значение. Нужен для получения offerId в mgm-виджете. Необязательный параметр.
 
 **Возвращаемое значение**
 
 Promise-объект
 
-**Пример: отправить имейл, имя, дополнительные данные**
+**Пример:** отправить имейл, имя, дополнительные данные
 ```javascript
   widget.collectEmail('keks@gmail.com', 'Эдуард', {phone: '88002000600', decision: 'true'}).then(function() {
     widget.setScreen('thank-you');
@@ -170,10 +171,19 @@ Promise-объект
 ```
 
 
-**Пример: отправить только имейл**
+**Пример:** отправить только имейл
 ```javascript
   widget.collectEmail('gunman@mailbox.net').then(function() {
     widget.setScreen('thank-you');
+  });
+```
+
+**Пример:** отправить имейл и получить offerId в мгм-виджете
+```javascript
+  widget.collectEmail('gunman@mailbox.net', null, null, true).then(function(resp) {
+    var offerId = resp.offer.id;
+
+    widget.setScreen('share');
   });
 ```
 
@@ -265,3 +275,31 @@ $agreementPseudo.addEventListener('click', function() {
 **Описание**
 
 Отправляет событие в аналитику. Более детально в разделе [Аналитика](/ru/widget/analytics/).
+
+
+## widget.getMotivation
+
+```javascript
+  widget.getMotivation(cacheTime).then(function(coupon) {});
+```
+
+**Параметры**
+
+- `cacheTime (Number)` - число секунд, на которые кешируется выданный купон. Необязательный параметр
+
+Если параметр задан, то в виджете будет выдаваться один и тот же купон в течение указанного кол-ва секунд.
+
+
+**Описание**
+
+Позволяет получить код купона или ссылку на лендинг с вознаграждением
+
+
+**Пример:**
+
+```javascript
+  widget.getMotivation(1800).then(function(coupon) {
+    var code = coupon.code;
+    var landingUrl = coupon.link; // ссылка на лендинг с вознаграждением
+  });
+```
