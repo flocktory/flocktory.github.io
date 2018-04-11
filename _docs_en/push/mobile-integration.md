@@ -152,6 +152,30 @@ GCM specifications:
 
 * [receiving notifications](https://developers.google.com/cloud-messaging/downstream)
 
+
+##### **Standard data set, passed by Flocktory in a push message**
+* landingUrl - link for a user to land on click
+* messageTitle - message title, upper push notification part text
+* body - general push message text
+* iconUrl - icon url
+
+Please mind that landing and icon urls may perform one or more redirects.
+
+In case you are using the firebase library to deal with push notifications,  the data mey be obtained as follows ([google documentation](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)):
+```java
+public void onMessageReceived(RemoteMessage remoteMessage){
+  Map<String, String> data = remoteMessage.getData();
+  RemoteMessage.Notification notification = remoteMessage.getNotification();
+
+  String landingUrl = data.get("url");
+  String iconUrl = notification.getIcon();
+  String messageTitle = notification.getTitle();
+  String messgeBody = notification.getBody();
+
+  // ...
+}
+```
+
 ## 4. Stats
 
 All subscription and delivery stats is available in the Flocktory cabinet just like Web Push stats.

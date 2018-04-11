@@ -171,6 +171,31 @@ _Вариант 2. Сбор мобильных уведомлений ведет
 
 * [получение Push уведомлений](https://developers.google.com/cloud-messaging/downstream)
 
+
+##### **Стандартные данные, передаваемые flocktory в пуш-сообщении**
+* landingUrl - ссылка для приземления пользователя по клику
+* messageTitle - текст верхней части уведомления
+* body - текст основной части уведомления
+* iconUrl - ссылка на картинку
+
+Нужно учитывать, что  landingUrl и iconUrl - ссылки, которые произведут один или несколько редиректов.
+
+Если вы используете библиотеку firebase для работы с пуш-уведомлениями, эти данные получаются следующим образом ([документация](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)):
+
+```java
+public void onMessageReceived(RemoteMessage remoteMessage){
+  Map<String, String> data = remoteMessage.getData();
+  RemoteMessage.Notification notification = remoteMessage.getNotification();
+
+  String landingUrl = data.get("url");
+  String iconUrl = notification.getIcon();
+  String messageTitle = notification.getTitle();
+  String messgeBody = notification.getBody();
+
+  // ...
+}
+```
+
 ## 4. Статистика
 
 Вся статистика по сбору Push подписок и проведенным рассылкам будет доступна в личном кабинете Focktory аналогично статистике по Web Push.
