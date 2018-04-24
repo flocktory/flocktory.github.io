@@ -2,7 +2,7 @@
 layout: doc
 title:  "Передача данных"
 section: widget
-order: 4
+order: 5
 ---
 
 ## Во Flocktory

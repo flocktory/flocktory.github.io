@@ -2,6 +2,7 @@
 layout: doc
 title:  "Bridge API (deprecated)"
 section: widget
+order: 6
 ---
 
 ## bridge.js является устаревшей библиотекой. В ближайшее время все используемые виджеты будут переведены на новое api. Новые виджеты должны быть сделаны только через [widget-api]({{ site.baseurl }}{% link _docs_ru/widget/widget-api.md %}).

@@ -2,6 +2,7 @@
 layout: doc
 title:  "Виджет сборщик push-подписок"
 section: widget
+order: 8
 ---
 
 **Следует помнить** о протоколе (http/https) сайта клиента. В зависимости от протокола подписка на
@@ -77,7 +78,7 @@ push уведомления будет происходить в один (https
 
         var body = document.querySelector('body');
         body.classList.remove('is-preview');
-        
+
         widget.pushStatus().then(function(status) {
           if (status.permission !== 'default') { return; }
           if (status.requireInteraction) {
@@ -86,8 +87,8 @@ push уведомления будет происходить в один (https
           }
           return widget.pushSubscribe().then(function() { widget.hide(1800); });
         })
-        
-        
+
+
         var button = document.querySelector('.Button');
         button.addEventListener('click', function() {
           widget.pushSubscribe().then(function() { widget.hide(1800); });
