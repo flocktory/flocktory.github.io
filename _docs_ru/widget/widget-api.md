@@ -303,3 +303,60 @@ $agreementPseudo.addEventListener('click', function() {
     var landingUrl = coupon.link; // ссылка на лендинг с вознаграждением
   });
 ```
+
+## widget.setValue
+
+```javascript
+  widget.setValue('cartValue', 1499, +(new Date()) + 24 * 60 * 60 * 1000);
+```
+
+**Параметры**
+
+- `name (String)` - Имя параметра. Обязательный параметр
+- `value (Any)` - Значение. Обязательный параметр
+- `expired (Number)` - Дата в милисекундах, когда истечет срок действия параметра. Необязательный параметр
+
+
+Если параметр `expired` не задан, то срок действия будет – 30 минут.
+
+
+**Описание**
+
+Метод позволяет сохранять данные виджета в localStorage. По истечению `expired` параметр из localStorage удаляется.
+
+
+**Пример: сохранить начальное значение корзины пользователя на время сессии**
+
+```javascript
+  var cartValue = 1500;
+
+  widget.setValue('initCart', cartValue);
+```
+
+
+## widget.getValue
+
+```javascript
+  var cartValue = widget.getValue('cartValue').value || 0;
+```
+
+**Параметры**
+
+- `name (String)` - Имя параметра. Обязательный параметр
+
+
+**Описание**
+
+Позволяет получить данные виджета из localStorage.
+Возвращает объект, содержащий значение параметра и срок действия в миллисекундах
+
+- `value  (Any)` - значение параметра
+- `expired (Number)` - срок действия параметра в миллисекундах
+
+
+**Пример: получить начальное значение корзины пользователя**
+
+```javascript
+  var cartStorageObj = widget.getValue('initCart');
+  var cartValue = cartStorageObj.value;
+```
