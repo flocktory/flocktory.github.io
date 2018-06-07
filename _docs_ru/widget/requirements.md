@@ -29,10 +29,6 @@ order: 9
 
   *Применение: для встраиваемых виджетов*
 
-- `wrapper-allowed` — можно задать вёрстку дополнительной обёртки виджета.
-
-  *Применение: для встраиваемых виджетов*
-
 
 # Примеры использования
 
@@ -57,5 +53,5 @@ order: 9
 ```
 
 ```html
-<meta name="fl-requirements" content="selector-required;wrapper-allowed" />
+<meta name="fl-requirements" content="selector-required" />
 ```
