@@ -26,9 +26,9 @@ section: push
 
 * При первом запуске приложения нужно сделать запрос 7, содержащий только site-id, и сохранить из ответа данные, которые нужно затем передавать при любом запросе к flocktory:
 ** Значение куки `__flocktory_web_session2` (будет содержаться в заголовке set-cookie). Эту куку нужно использовать во всех последующих запросах
-** значение `site-session-id` из тела ответа. Ответ будет вида `...({"site-session-id":"*",...})`. Это значение нужно передавать в соответствующем поле каждого запросаа (см примеры ниже)
+** значение `site-session-id` из тела ответа. Ответ будет вида `...({"site-session-id":"*",...})`. этом значение нужно передавать в соответствующем поле каждого запроса (см примеры ниже)
 
-* если при авторизации в мобильном приложение пользователь указывает email адрес, его так же следует передать во Flocktory;
+* если при авторизации в мобильном приложение пользователь указывает email адрес, его так же следует передать во Flocktory (см запрос 7);
 
 
 
@@ -46,7 +46,7 @@ section: push
 
 1. пользователь совершил заказ
 ```curl
-curl 'https://api.flocktory.com/1/postcheckout/offer.js?=123&body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/1/postcheckout/offer.js?body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * **site_id** - id вашего сайта в системе Flocktory
 значения в body
@@ -63,7 +63,7 @@ curl 'https://api.flocktory.com/1/postcheckout/offer.js?=123&body={"site_id":183
 
 2. пользователь просмотрел товар
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/","site-session-id":"123"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -gzip
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/","site-session-id":"123"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
 * **links.yandex_offer** - id товара
 * **links.site** - id вашего сайта в системе Flocktory
@@ -200,7 +200,7 @@ public void onMessageReceived(RemoteMessage remoteMessage){
 }
 ```
 
-Также есть возможность передавать в remote message data произволные пары ключ-значение, что позволяет решить проблему лендинга на конкретный экран приложения.
+Также есть возможность передавать в remote message data произвольные пары ключ-значение, что позволяет решить проблему лендинга на конкретный экран приложения. Это можно настроить при создании рассылки в личном кабинете.
 
 ```java
   Map<String, String> data = remoteMessage.getData();
