@@ -15,7 +15,9 @@ Given the above factors, we decided to abandon the implementation of the SDK in 
 
 ## 2. Requirements:
 
-* with each request to the Flocktory API, you must pass a unique application identifier (you mau know it as "device-uuid"). The identifier should be unique and should not change after the application is restarted. This identifier is passed in the "uuid" variable;
+* Please note that before making any request, you should first execute req. number 7 containg just the site-id key in order to retrieve the values to be used after in every request
+** value of the `__flocktory_web_session2` cookie (will be contained in a `set-cookie` header. This cookie should be used with any request to be executed since.
+** `site-session-id` value which is to be retrieved from the response body `...({"site-session-id":"*",...})`. This should be passed in all further request bodies in a corresponding field (see the examples below)
 
 * If user authorizes while using the app, you should pass the email used to Flocktory.
 
@@ -37,7 +39,7 @@ Here you can see the required curl requests examples.
 
 1. User makes an order
 ```curl
-curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/1/postcheckout/offer.js?body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}},"site-session-id":"123"}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * site_id - Flocktory ID of your site
 * i - order ID
@@ -53,7 +55,7 @@ curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id"
 
 2. Product view event
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}},"site-session-id":"123"}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
 * links.yandex_offer - product ID
 * links.site - Flocktory ID of your site
@@ -61,7 +63,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 3. Category view
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.category_visit","links":{"yandex_category":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.category_visit","links":{"yandex_category":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}},"site-session-id":"123"}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
 * links.yandex_category - category ID
 * links.site - Flocktory ID of your site
@@ -69,7 +71,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 4. Page view
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"session.page_visit","payload":{"resolution":"1366x741","ga":{"utmcsr":"","utmccn":"","utmcmd":"","h_utmcsr":"","h_utmccn":"","h_utmcmd":""},"url":"http://spreadreward.com/"},"links":{"site":1833}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"session.page_visit","payload":{"resolution":"1366x741","ga":{"utmcsr":"","utmccn":"","utmcmd":"","h_utmcsr":"","h_utmccn":"","h_utmcmd":""},"url":"http://spreadreward.com/"},"links":{"site":1833}},"site-session-id":"123"}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * payload.resolution - device screen resolution
 * payload.ga - leave these values blank, as in the example
@@ -78,7 +80,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 5. User adds a product to cart
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.add_to_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","price":832,"count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.add_to_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","price":832,"count":1},"url":"http://1833.demoshop.flocktory.com/"}},"site-session-id":"123"}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * links.yandex_offer - product ID
 * links.site - Flocktory ID of your site
@@ -87,7 +89,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 6. User removes a product from cart
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.remove_from_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.remove_from_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","count":1},"url":"http://1833.demoshop.flocktory.com/"}},"site-session-id":"123"}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * links.yandex_offer - product ID
 * links.site - Flocktory ID of your site
@@ -97,7 +99,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 7. User leaves an email<br>
 Use this request when user authorizes in the app, subscribes to a mailing list and any other case when they leaves and email.
 ```curl
-curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uuid":"123","profile":{"email":"asd@asd.ru","name":"johnny"}}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
+curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","profile":{"email":"asd@asd.ru","name":"johnny"},"site-session-id":"123"}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
 ```
 * siteId - Flocktory ID of your site
 * profile.email - user's email
@@ -107,11 +109,11 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uui
 * replace ... with the [token received](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))
 * in the os field pass either "android" or "ios" depending on the device's OS
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/..."}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 In case you decided to use a separate project for app pushes, please also pass the corresponding gcm-sender-id in the request like this
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"}}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"},"site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 
 ### 3.2 Push supscription and notifications processing.
@@ -159,7 +161,9 @@ GCM specifications:
 * body - general push message text
 * iconUrl - icon url
 
-Please mind that landing and icon urls may perform one or more redirects.
+Please mind 
+* the landing and icon urls may perform one or more redirects
+* even when you are not going to show the image or land at the url, you should still execute the requests in order for the statistics to be collected fully (iconUrl for show, landing url for click)
 
 In case you are using the firebase library to deal with push notifications,  the data mey be obtained as follows ([google documentation](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)):
 ```java
@@ -174,6 +178,13 @@ public void onMessageReceived(RemoteMessage remoteMessage){
 
   // ...
 }
+```
+
+We also provide the possibility to pass custom key-value pairs in remote message data section in order to solve the problem of specifying the application screen to land the user in case web link does not quite suit your needs.
+
+```java
+  Map<String, String> data = remoteMessage.getData();
+  String v1 = data.get("k1");
 ```
 
 ## 4. Stats
