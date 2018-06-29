@@ -24,9 +24,11 @@ section: push
 
 ## 2. Требования:
 
-* с каждым запросом к Flocktory API необходимо передавать уникальный идентификатор приложения (в некоторых терминологиях device-uuid). Идентификатор является уникальным и не должен меняться после перезапуска приложения. Данный идентификатор во всех запросах необходимо передавать дополненной переменной ?uuid;
+* При первом запуске приложения нужно сделать запрос 7, содержащий только site-id, и сохранить из ответа данные, которые нужно затем передавать при любом запросе к flocktory:
+** Значение куки `__flocktory_web_session2` (будет содержаться в заголовке set-cookie). Эту куку нужно использовать во всех последующих запросах
+** значение `site-session-id` из тела ответа. Ответ будет вида `...({"site-session-id":"*",...})`. этом значение нужно передавать в соответствующем поле каждого запроса (см примеры ниже)
 
-* если при авторизации в мобильном приложение пользователь указывает email адрес, его так же следует передать во Flocktory;
+* если при авторизации в мобильном приложение пользователь указывает email адрес, его так же следует передать во Flocktory (см запрос 7);
 
 
 
@@ -44,7 +46,7 @@ section: push
 
 1. пользователь совершил заказ
 ```curl
-curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/1/postcheckout/offer.js?body={"site_id":1833,"jsapi_version":"2.0","i":"5805265","e":"johnny.appleseed@gmail.com","n":"Johnny Appleseed","p":16790,"t":{"0":{"i":7752795,"t":"Nokia Lumia 800","u":"https://assets.flocktory.com/uploads/clients/1063/5bb944e2-70b8-4912-bc8f-ee43e345be4f_lumia.jpg","c":1,"p":16790}}}&callback=flock_jsonp' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * **site_id** - id вашего сайта в системе Flocktory
 значения в body
@@ -61,7 +63,7 @@ curl 'https://api.flocktory.com/1/postcheckout/offer.js?uuid=123&body={"site_id"
 
 2. пользователь просмотрел товар
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.item_visit","links":{"yandex_offer":"1","site":1833},"payload":{"url":"http://spreadreward.com/","site-session-id":"123"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
 * **links.yandex_offer** - id товара
 * **links.site** - id вашего сайта в системе Flocktory
@@ -69,7 +71,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 3. пользователь просмотрел категорию
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.category_visit","links":{"yandex_category":"1","site":1833},"payload":{"url":"http://spreadreward.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.category_visit","links":{"yandex_category":"1","site":1833},"payload":{"url":"http://spreadreward.com/","site-session-id":"123"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache'  --compressed -g
 ```
 * **links.yandex_category** - id категории
 * **links.site** - id вашего сайта в системе Flocktory
@@ -77,7 +79,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 4. пользователь просмотрел страницу
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"session.page_visit","payload":{"resolution":"1366x741","ga":{"utmcsr":"","utmccn":"","utmcmd":"","h_utmcsr":"","h_utmccn":"","h_utmcmd":""},"url":"http://spreadreward.com/"},"links":{"site":1833}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"session.page_visit","payload":{"resolution":"1366x741","ga":{"utmcsr":"","utmccn":"","utmcmd":"","h_utmcsr":"","h_utmccn":"","h_utmcmd":""},"url":"http://spreadreward.com/"},"links":{"site":1833},"site-session-id":"123"}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * **payload.resolution** - разрешение экрана устройства
 * **payload.ga** - здесь оставляйте значения пустыми, как указано в примере
@@ -86,7 +88,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 5. пользователь добавил что-то в корзину
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.add_to_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","price":832,"count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.add_to_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","price":832,"count":1},"url":"http://1833.demoshop.flocktory.com/","site-session-id":"123"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * **links.yandex_offer** - id товара
 * **links.site** - id вашего сайта в системе Flocktory
@@ -95,7 +97,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 
 6. пользователь удалил что-то из корзины
 ```curl
-curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"data":{"action":"customer.remove_from_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","count":1},"url":"http://1833.demoshop.flocktory.com/"}}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
+curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"action":"customer.remove_from_cart","links":{"yandex_offer":"7345265","site":1833},"payload":{"count":1,"custom_data":{"id":"7345265","count":1},"url":"http://1833.demoshop.flocktory.com/"},"site-session-id":"123"}}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4' -H 'accept: */*' -H 'cache-control: no-cache' --compressed -g
 ```
 * **links.yandex_offer** - id товара
 * **links.site** - id вашего сайта в системе Flocktory
@@ -105,7 +107,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?uuid=123&body={"da
 7. пользователь оставил емейл<br>
 используйте данный код при авторизации пользователя в приложении и других случаях, когда пользователь оставляет емейл (например, при подписке на новостную рассылку)
 ```curl
-curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uuid":"123","profile":{"email":"asd@asd.ru","name":"johnny"}}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
+curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","profile":{"email":"asd@asd.ru","name":"johnny"},"site-session-id":"123"}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
 ```
 * **siteId** - id вашего сайта в системе Flocktory
 * **profile.email** - емейл пользователя
@@ -116,17 +118,17 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","uui
   * вместо многоточия подставьте [полученный при подписке токен](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))
   * в поле os нужно передавать "android" или "ios"
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/..."}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 В случае если вы решили использовать отдельный firebase проект для работы с нотификациями в приложении, нужно при подписке передавать в запросе используемый gcm-sender-id следующим образом:
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"}}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"},"site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 * вы используете **appmetrica**
   * в поле os нужно передавать "android" или "ios"
   * в поле token надо передавать значение appmetrica_device_id
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?uuid=123&body={"from-mobile-app":true,"platform":"app-metrica","os":"android","site-id":"1833","token":""}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*' -g --compressed 
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"app-metrica","os":"android","site-id":"1833","token":"","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*' -g --compressed 
 ```
 
 ### Часть 2. Сбор и обработка пуш уведомлений.
@@ -178,7 +180,9 @@ _Вариант 2. Сбор мобильных уведомлений ведет
 * body - текст основной части уведомления
 * iconUrl - ссылка на картинку
 
-Нужно учитывать, что  landingUrl и iconUrl - ссылки, которые произведут один или несколько редиректов.
+Важно:
+* landingUrl и iconUrl - ссылки, которые произведут один или несколько редиректов.
+* Использование этих ссылок необходимо для корректного сбора статистики. Даже если вы не планируете открывать landingUrl или показывать пришедшую картинку, необходимо сделать запросы по этим адресам (iconUrl при показе,  landingUrl при клике)
 
 Если вы используете библиотеку firebase для работы с пуш-уведомлениями, эти данные получаются следующим образом ([документация](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/RemoteMessage)):
 
@@ -194,6 +198,13 @@ public void onMessageReceived(RemoteMessage remoteMessage){
 
   // ...
 }
+```
+
+Также есть возможность передавать в remote message data произвольные пары ключ-значение, что позволяет решить проблему лендинга на конкретный экран приложения. Это можно настроить при создании рассылки в личном кабинете.
+
+```java
+  Map<String, String> data = remoteMessage.getData();
+  String v1 = data.get("k1");
 ```
 
 ## 4. Статистика
