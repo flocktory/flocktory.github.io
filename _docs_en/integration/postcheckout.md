@@ -29,7 +29,7 @@ Important: If you have several different pages after a successful transaction --
                 image: 'http://path.to.image',
                 count: 1
             }]
-        }
+        }, spot:'desktop'
     }]);
 </script>
 ```
