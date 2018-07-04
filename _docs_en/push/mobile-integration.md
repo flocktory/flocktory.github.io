@@ -16,8 +16,8 @@ Given the above factors, we decided to abandon the implementation of the SDK in 
 ## 2. Requirements:
 
 * Please note that before making any request, you should first execute req. number 7 containg just the site-id key in order to retrieve the values to be used after in every request
-** value of the `__flocktory_web_session2` cookie (will be contained in a `set-cookie` header. This cookie should be used with any request to be executed since.
-** `site-session-id` value which is to be retrieved from the response body `...({"site-session-id":"*",...})`. This should be passed in all further request bodies in a corresponding field (see the examples below)
+    * value of the `__flocktory_web_session2` cookie (will be contained in a `set-cookie` header. This cookie should be used with any request to be executed since.
+    * `site-session-id` value which is to be retrieved from the response body `...({"site-session-id":"*",...})`. This should be passed in all further request bodies in a corresponding field (see the examples below)
 
 * If user authorizes while using the app, you should pass the email used to Flocktory. (see below request 7)
 
