@@ -118,7 +118,7 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","pro
   * вместо многоточия подставьте [полученный при подписке токен](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))
   * в поле os нужно передавать "android" или "ios"
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 В случае если вы решили использовать отдельный firebase проект для работы с нотификациями в приложении, нужно при подписке передавать в запросе используемый gcm-sender-id следующим образом:
 ```curl
