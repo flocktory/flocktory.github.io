@@ -174,6 +174,19 @@ window.flocktory.push(['removeFromCart', {
 	}
 }]);
 ```
+Также существует метод, позволяющий просто передать все содержимое коризины, изменения мы вычислим сами
+
+```javascript
+window.flocktory = window.flocktory || [];
+window.flocktory.push(['updateCart', {
+  cart: {
+    items:[
+      {id:'1001', price: 100, count: 1},
+      {id:'1011', price: 200, count: 1}
+    ]
+  }
+}]);
+```
 
 ### Параметры
 

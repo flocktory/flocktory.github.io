@@ -163,6 +163,19 @@ window.flocktory.push(['removeFromCart', {
 	}
 }]);
 ```
+Also, there is a method that takes current cart contents and calculates the differences itself
+
+```javascript
+window.flocktory = window.flocktory || [];
+window.flocktory.push(['updateCart', {
+  cart: {
+    items:[
+      {id:'1001', price: 100, count: 1},
+      {id:'1011', price: 200, count: 1}
+    ]
+  }
+}]);
+```
 
 ### Parameters
 
