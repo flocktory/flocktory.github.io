@@ -131,6 +131,18 @@ curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from
 curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"app-metrica","os":"android","site-id":"1833","token":"","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*' -g --compressed 
 ```
 
+#### Дополнительные запросы, которые также могут пригодиться. В случае необходимости о деталях Вам сообщит менеджер flocktory.
+
+* Передача кастомного события
+```curl
+curl 'https://api.flocktory.com/u_shaman/custom-events.js?body={"event":"test","site-id":"1833","site-session-id":"a7ee8521-80bf-43bf-9df1-d0d85f5de7c7-4"}&callback=flock_jsonp' --compressed -g
+```
+
+* Передача произвольных параметров пользователя
+```curl
+curl 'https://api.flocktory.com/u_flockman/set-profile-custom-meta.js?body={"site-id":"1833","meta":{"test":"1"},"site-session-id":"a7ee8521-80bf-43bf-9df1-d0d85f5de7c7-3"}&callback=flock_jsonp' --compressed -g
+```
+
 ### Часть 2. Сбор и обработка пуш уведомлений.
 
 Возможны два варианта:
