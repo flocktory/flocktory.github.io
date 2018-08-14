@@ -106,7 +106,7 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","pro
 * profile.name - user's name
 
 8. User's subscription has been acquired
-* replace ... with the [token received](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))
+* replace ... with the token received ([android](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String),[ios](https://firebase.google.com/docs/cloud-messaging/ios/client#access_the_registration_token)))
 * in the os field pass either "android" or "ios" depending on the device's OS
 ```curl
 curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
@@ -160,11 +160,13 @@ Flocktory sends notification to GCM/FCM/APN unchanged. To make sure everything w
 
 If everything works fine you should implemeny calling method No. 8 to send subscription information to Flocktory.
 
-GCM specifications:
+FCM specifications:
 
-* subscribing users: [android](https://developers.google.com/cloud-messaging/android/client) , [ios](https://developers.google.com/cloud-messaging/ios/client)
+* client setup: [android](https://firebase.google.com/docs/cloud-messaging/android/client) , [ios](https://firebase.google.com/docs/cloud-messaging/ios/client)
 
-* [receiving notifications](https://developers.google.com/cloud-messaging/downstream)
+* accessing subscription token: [android](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) , [ios](https://firebase.google.com/docs/cloud-messaging/ios/client#access_the_registration_token)
+
+* receiving notifications: [android](https://firebase.google.com/docs/cloud-messaging/android/receive) , [ios](https://firebase.google.com/docs/cloud-messaging/ios/receive)
 
 
 ##### **Standard data set, passed by Flocktory in a push message**

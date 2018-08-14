@@ -115,7 +115,7 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","pro
 
 8. для пользователя получена Push подписка
 * вы используете **firebase**
-  * вместо многоточия подставьте [полученный при подписке токен](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String))
+  * вместо многоточия подставьте полученный при подписке токен ([android](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String),[ios](https://firebase.google.com/docs/cloud-messaging/ios/client#access_the_registration_token))))
   * в поле os нужно передавать "android" или "ios"
 ```curl
 curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
@@ -179,11 +179,14 @@ _Вариант 2. Сбор мобильных уведомлений ведет
 
 В случае корректной работы в момент сбора подписки необходимо вызвать метод №8 и передать во Flocktory информацию о подписке. Далее работа ведет по стандартной схеме.
 
-Ссылки на спецификации от GCM:
+Ссылки на спецификации от FCM:
 
-* получение Push подписок: [android](https://developers.google.com/cloud-messaging/android/client) и [ios](https://developers.google.com/cloud-messaging/ios/client)
+* настройка клиента: [android](https://firebase.google.com/docs/cloud-messaging/android/client) , [ios](https://firebase.google.com/docs/cloud-messaging/ios/client)
 
-* [получение Push уведомлений](https://developers.google.com/cloud-messaging/downstream)
+* получение токена подписки: [android](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) , [ios](https://firebase.google.com/docs/cloud-messaging/ios/client#access_the_registration_token)
+
+* получение уведомлений: [android](https://firebase.google.com/docs/cloud-messaging/android/receive) , [ios](https://firebase.google.com/docs/cloud-messaging/ios/receive)
+
 
 
 ##### **Стандартные данные, передаваемые flocktory в пуш-сообщении**
