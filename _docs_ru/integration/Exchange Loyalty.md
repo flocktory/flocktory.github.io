@@ -1,3 +1,11 @@
+---
+layout: doc
+title:  "Exchange Loyalty"
+section: integration
+order: 11
+---
+
+
 h1  Модуль Exchange Loyalty можно подключить тремя способами.
 =====================
 
