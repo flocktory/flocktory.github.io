@@ -61,7 +61,7 @@ order: 11
 
 **Примеры:**
 * ИМЯ и/или ИМЕЙЛ известны:
-* <https://share.flocktory.com/exchange/login?ssid=SSID&bid=BID&name=Иван&email= ivan@gmail.com>
+* <https://share.flocktory.com/exchange/login?ssid=SSID&bid=BID&name=Иван&email=ivan@gmail.com>
 * ИМЯ и/или ИМЕЙЛ не известны:
 * <https://share.flocktory.com/exchange/login?ssid=SSID&bid=BID&email=xname@flocktory.com>
 
