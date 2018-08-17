@@ -51,8 +51,8 @@ order: 11
 
 В тег <a href=”URL”> баннера необходимо подставить персонализированную ссылку.
 
-Базовая ссылка:
- <https://share.flocktory.com/exchange/login?ssid=SSID&bid=BID&name=NAME&email=EMAIL>
+Базовая ссылка:<https://share.flocktory.com/exchange/login?ssid=SSID&bid=BID&name=NAME&email=EMAIL>
+
 Если известно ИМЯ и/или ИМЕЙЛ адрес пользователя, необходимо подставить значения в параметры name и email, соответственно.
 
 В случае, если ИМЯ и/или ИМЕЙЛ не известны, например, пользователь не авторизован, необходимо:
