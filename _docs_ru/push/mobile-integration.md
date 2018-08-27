@@ -107,7 +107,7 @@ curl 'https://api.flocktory.com/underworld/tracks/ultimate.js?body={"data":{"act
 7. пользователь оставил емейл<br>
 используйте данный код при авторизации пользователя в приложении и других случаях, когда пользователь оставляет емейл (например, при подписке на новостную рассылку)
 ```curl
-curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","profile":{"email":"asd@asd.ru","name":"johnny"},"site-session-id":"123"}&callback=flock_jsonp_1' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
+curl 'https://api.flocktory.com/u_shaman/setup-api?body={"siteId":"1833","profile":{"email":"asd@asd.ru","name":"johnny"},"site-session-id":"123"}' -H 'pragma: no-cache' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4'  --compressed -g
 ```
 * **siteId** - id вашего сайта в системе Flocktory
 * **profile.email** - емейл пользователя
@@ -118,17 +118,17 @@ curl 'https://api.flocktory.com/u_shaman/setup-api.js?body={"siteId":"1833","pro
   * вместо многоточия подставьте полученный при подписке токен ([android](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String),[ios](https://firebase.google.com/docs/cloud-messaging/ios/client#access_the_registration_token))))
   * в поле os нужно передавать "android" или "ios"
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123"}' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 В случае если вы решили использовать отдельный firebase проект для работы с нотификациями в приложении, нужно при подписке передавать в запросе используемый gcm-sender-id следующим образом:
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"},"site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"},"site-session-id":"123"}' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
 * вы используете **appmetrica**
   * в поле os нужно передавать "android" или "ios"
   * в поле token надо передавать значение appmetrica_device_id
 ```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session.js?body={"from-mobile-app":true,"platform":"app-metrica","os":"android","site-id":"1833","token":"","site-session-id":"123"}&callback=flock_jsonp' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*' -g --compressed 
+curl 'https://api.flocktory.com/u_flockman/attach-push-to-session?body={"from-mobile-app":true,"platform":"app-metrica","os":"android","site-id":"1833","token":"","site-session-id":"123"}' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*' -g --compressed 
 ```
 
 #### Дополнительные запросы, которые также могут пригодиться. В случае необходимости о деталях Вам сообщит менеджер flocktory.
