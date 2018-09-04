@@ -4,7 +4,7 @@ title:  "Требования к yml фиду"
 section: general
 ---
 
-Фид должен соответствовать спецификации Яндекса: [https://yandex.ru/support/partnermarket/yml/about-yml.html](https://yandex.ru/support/partnermarket/yml/about-yml.html)
+Фид должен соответствовать [спецификации Яндекса](https://yandex.ru/support/partnermarket/yml/about-yml.html). Проверить свой фид на соовтетствие можно [здесь](https://webmaster.yandex.ru/tools/xml-validator/) (вкладка "Маркет")
 
 Также обратите внимание:
 
