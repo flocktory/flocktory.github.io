@@ -117,13 +117,11 @@ curl 'https://api.flocktory.com/u_shaman/setup-api?body={"siteId":"1833","profil
 * вы используете **firebase**
   * вместо многоточия подставьте полученный при подписке токен ([android](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId.html#getToken(java.lang.String, java.lang.String),[ios](https://firebase.google.com/docs/cloud-messaging/ios/client#access_the_registration_token))))
   * в поле os нужно передавать "android" или "ios"
-```curl
-curl 'https://api.flocktory.com/u_flockman/attach-push-to-session?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","site-session-id":"123"}' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
-```
-В случае если вы решили использовать отдельный firebase проект для работы с нотификациями в приложении, нужно при подписке передавать в запросе используемый gcm-sender-id следующим образом:
+  * в поле gcm-sender-id нужно подставить публичный ключ проекта (он же Sender ID):
 ```curl
 curl 'https://api.flocktory.com/u_flockman/attach-push-to-session?body={"from-mobile-app":true,"platform":"firebase","os":"android","site-id":"1833","token":"https://android.googleapis.com/gcm/send/...","provider-meta":{"gcm-sender-id":"321"},"site-session-id":"123"}' -H 'accept-encoding: gzip, deflate, sdch, br' -H 'accept-language: en-US,en;q=0.8' -H 'accept: */*'  --compressed -g
 ```
+
 * вы используете **appmetrica**
   * в поле os нужно передавать "android" или "ios"
   * в поле token надо передавать значение appmetrica_device_id
