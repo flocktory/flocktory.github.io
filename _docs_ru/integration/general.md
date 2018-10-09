@@ -24,7 +24,7 @@ order: 1
 В Google Tag Manager 
 
 ```html
-<script type="text/javascript"src="//api.flocktory.com/v2/loader.js?site_id=SITE_ID" async="async"></script>
+<script type="text/javascript"src="//api.flocktory.com/v2/loader.js?site_id=YOUR_SITE_ID" async="async"></script>
 ```
 ![GTM int](https://assets.flocktory.com/uploads/clients/1562/0b558f18-e280-4c42-bce7-eec0b0de2446_gtm__general.png)
 
