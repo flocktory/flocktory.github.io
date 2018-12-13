@@ -194,7 +194,7 @@ public void onMessageReceived(RemoteMessage remoteMessage){
 }
 ```
 
-We also provide the possibility to pass custom key-value pairs in remote message data section in order to solve the problem of specifying the application screen to land the user in case web link does not quite suit your needs. This can be set up in the cabinet when creating a campaign.
+We also provide the possibility to pass custom key-value pairs in remote message data section in order to solve the problem of specifying the application screen to land the user in case web link does not quite suit your needs. This can be set up in the cabinet when creating a campaign (the key would then be "landing-key").
 
 ```java
   Map<String, String> data = remoteMessage.getData();
