@@ -3,7 +3,6 @@ layout: doc
 title: "Precheckout GTM"
 section: integration
 ---
-
 Интеграция Precheckout через [Google Tag Manager](https://www.google.com/intl/ru/tagmanager/).
 
 ## Необходимые требования для начала интеграции
