@@ -1,9 +1,8 @@
 ---
 layout: doc
-title: "GTM Precheckout"
+title: "Интеграция Precheckout через [Google Tag Manager](https://www.google.com/intl/ru/tagmanager/)"
 section: integration
 ---
-## Интеграция Precheckout через [Google Tag Manager](https://www.google.com/intl/ru/tagmanager/)
 
 ## Необходимые требования для начала интеграции
 Для корректной работы модуля Precheckout на сайте должна присутствовать [Общая интеграция](https://flocktory.github.io/ru/integration/general/). 
