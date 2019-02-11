@@ -216,7 +216,7 @@ window.flocktory.push(['updateCart', {
 
 ### 1. Код интеграции	
 
-* Откройте любую страницу вашего сайта, нажмите F12 или Shift + Ctrl + I чтобы открыть панель инструментов разработчика;
+* Откройте любую страницу вашего сайта, нажмите F12 или Shift + Ctrl + I, чтобы открыть панель инструментов разработчика;
 
 * Выберите вкладку network и обновите страницу;
 
@@ -228,13 +228,13 @@ window.flocktory.push(['updateCart', {
 ![int2](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/screen2.png?raw=true)
 
 	
-* Среди появившихся  запросов найдите запрос с названием  ultimate, нажмите на него и выберите вкладку «Headers»	
+* Среди появившихся  запросов найдите запрос с названием  ultimate, нажмите на него и выберите вкладку «Headers»;	
 ![int3](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/screen3.png?raw=true)
 
 
 ![int4](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/screen4.png?raw=true)
 
-* Прокрутите содержимое вкладки до конца, и найдите site_id. Он должен совпадать с вашим.	
+* Прокрутите содержимое вкладки до конца, и найдите site_id. Он должен совпадать с вашим;	
 
 ![int5](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/screen5.png?raw=true)
 
@@ -242,13 +242,13 @@ window.flocktory.push(['updateCart', {
 ![int6](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/screen6.png?raw=true)
 
 
-* Найдите запись с заголовком «ultimate.js» и проверьте, что его параметр «site» равен вашему site_id
+* Найдите запись с заголовком «ultimate.js» и проверьте, что его параметр «site» равен вашему site_id;
 ![int7](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/screen7.png?raw=true)
 
 ### 2. Код авторизации
 
 	
-* Выполните действия из пунктов 1.1 – 1.3. После этого авторизуйтесь на сайте и найдите запись с заголовком «setup-api» по аналогии с пунктом 1.4. Если записей две, то выбирайте ту, что находится ниже в списке. Проверьте, что параметры name и email соответствуют введённым вами данным
+* Выполните действия из пунктов 1.1 – 1.3. После этого авторизуйтесь на сайте и найдите запись с заголовком «setup-api» по аналогии с пунктом 1.4. Если записей две, то выбирайте ту, что находится ниже в списке. Проверьте, что параметры name и email соответствуют введённым вами данным;
 
 ![auth_code](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/auth_code.png?raw=true)
 
@@ -256,49 +256,49 @@ window.flocktory.push(['updateCart', {
 ### 3. ID категорий и товаров
 
 
-* Для проверки корректности передачи ID категорий выполните действия из пунктов 1.1 – 1.3. После этого зайдите на страницу категории и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей должно быть две, выбирайте ту, у которой есть параметр action":"customer.category_visit". 
+* Для проверки корректности передачи ID категорий выполните действия из пунктов 1.1 – 1.3. После этого зайдите на страницу категории и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей должно быть две, выбирайте ту, у которой есть параметр action":"customer.category_visit"; 
 
 ![id_cath1](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath1.png?raw=true)
 
 
-* Проверьте, что параметр yandex_category соответствует ID данной категории в вашей БД
+* Проверьте, что параметр yandex_category соответствует ID данной категории в вашей БД;
 
 ![id_cath2](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath2.png?raw=true)
 
 	
-* Для проверки корректности передачи ID категорий выполните действия из пунктов 1.1 – 1.3. После этого зайдите на страницу товара и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей должно быть две, выбирайте ту, у которой есть параметр "action":"customer.item_visit".
+* Для проверки корректности передачи ID категорий выполните действия из пунктов 1.1 – 1.3. После этого зайдите на страницу товара и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей должно быть две, выбирайте ту, у которой есть параметр "action":"customer.item_visit";
 
 ![id_cath3](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath3.png?raw=true)
 
 	
-* Проверьте, что параметр yandex_offer соответствует ID данного товара в вашей БД
+* Проверьте, что параметр yandex_offer соответствует ID данного товара в вашей БД;
 
 ![id_cath4](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath4.png?raw=true)
 
 ### 4. Код состояния корзины
 
 	
-* Для проверки корректности передачи данных о добавленных в корзину товарах выполните действия из пунктов 1.1 – 1.3. После этого добавьте товар в корзину и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей может быть несколько, выбирайте ту, у которой есть параметр action":"customer.add_to_cart".
+* Для проверки корректности передачи данных о добавленных в корзину товарах выполните действия из пунктов 1.1 – 1.3. После этого добавьте товар в корзину и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей может быть несколько, выбирайте ту, у которой есть параметр action":"customer.add_to_cart";
 
 ![id_cath5](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath5.png?raw=true)
 
 	
-* Проверьте, что параметры в payload соответствует данным добавленного товара
+* Проверьте, что параметры в payload соответствует данным добавленного товара;
 
 ![id_cath6](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath6.png?raw=true)
 
 
-* Для проверки корректности передачи данных об удалённых из корзины товарах выполните действия из пунктов 1.1 – 1.3. После этого добавьте товар в корзину и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей может быть несколько, выбирайте ту, у которой есть параметр action":"customer.remove_from_cart".
+* Для проверки корректности передачи данных об удалённых из корзины товарах выполните действия из пунктов 1.1 – 1.3. После этого добавьте товар в корзину и найдите запись с заголовком «ultimate.js» по аналогии с пунктом 1.4. Записей может быть несколько, выбирайте ту, у которой есть параметр action":"customer.remove_from_cart";
 
 ![id_cath7](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath7.png?raw=true)
 
 
-* Проверьте, что параметры в payload соответствует данным удалённого товара
+* Проверьте, что параметры в payload соответствует данным удалённого товара;
 
 ![id_cath8](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath8.png?raw=true)
 
 
-* Для проверки корректности обновления корзины механикой updateCart откройте вкладку «Console» инструментов разработчика. После этого произведите любое действие с корзиной и введите в консоль flocktory.getData().cart.items. Сравните содержимое появившегося массива с корзиной 
+* Для проверки корректности обновления корзины механикой updateCart откройте вкладку «Console» инструментов разработчика. После этого произведите любое действие с корзиной и введите в консоль flocktory.getData().cart.items. Сравните содержимое появившегося массива с корзиной. 
 
  ![id_cath9](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/id_cath9.png?raw=true)
 
