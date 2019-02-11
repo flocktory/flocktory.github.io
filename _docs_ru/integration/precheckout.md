@@ -27,6 +27,7 @@ section: integration
 Данный модуль позволяет Flocktory увидеть факт авторизации пользователя на сайте и запустить соответсвующие кампании и ограничить показ кампаний, не предназначенных для показа неавторизованным пользователям.
 Для интеграции данного модуля выполните следующие действия:
 * 2.1. Поместите на каждой странице следующий код:
+
 ```html
 <div class="i-flocktory" data-fl-user-name="Ivan Petrov" data-fl-user-email="ivan@petrov.ru"></div>
 ```
@@ -60,6 +61,7 @@ section: integration
 Для интеграции данного модуля выполните следующие действия:
 
 * 4.1. На всех страницах товарного каталога, не являющихся карточками товара, вставьте следующий код:
+
 ```html
 <div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id="123" data-fl-item-category-id="1" data-fl-item-vendor="Nike" data-fl-item-available="true"></div>
 ```
