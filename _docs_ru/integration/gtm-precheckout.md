@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  " GTM Precheckout"
+title: "GTM Precheckout"
 section: integration
 ---
 ## Интеграция Precheckout через [Google Tag Manager](https://www.google.com/intl/ru/tagmanager/)
