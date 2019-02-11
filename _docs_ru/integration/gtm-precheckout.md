@@ -34,7 +34,7 @@ section: integration
 * Вставьте следующий код в поле HTML и включите поддержку функции «document.write»:
 
 ```html
-<script type="text/javascript"src="//api.flocktory.com/v2/loader.js?site_id=YOUR_SITE_ID" async="async"></script>
+<script type="text/javascript"src="https://api.flocktory.com/v2/loader.js?site_id=YOUR_SITE_ID" async="async"></script>
 ```
 
 ![screen5](https://github.com/flocktory/flocktory.github.io/blob/9f4c3c2b74dc098a5a3899f2ae17b0f102f2fafe/_docs_ru/integration/5.png?raw=true)
@@ -82,7 +82,7 @@ section: integration
 | Название параметра     | Параметр               | Описание  |         Обязательный                    |
 |:------------:|:------------------:|:---------------:|:----------------------------------------------:|
 |data-fl-user-name |Имя пользователя| Имя пользователя в формате «Имя Фамилия». Если имя неизвестно, то параметр передавать не нужно.     | Нет |
-|Data-fl-user-email |E-mail пользователя	| E-mail пользователя в формате «email@domain.ru». Если адрес электронной почты неизвестен, то вместо него можно использовать номер телефона, передавая его в формате «79999999999@unknown.email». Если ни почта, ни номер телефона неизвестны, то используется ID клиента в вашей системе в формате «id@unknown.email»   | Да |
+|Data-fl-user-email |E-mail пользователя	| <ul><li>E-mail пользователя в формате «email@domain.ru».</li><li>Если адрес электронной почты неизвестен, то вместо него можно использовать номер телефона, передавая его в формате «79999999999@unknown.email».</li><li>Если ни почта, ни номер телефона неизвестны, то используется ID клиента в вашей системе в формате «id@unknown.email»</li></ul>   | Да |
 
 
 
@@ -137,7 +137,7 @@ section: integration
 
 
 ```html
-{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id= {{zItemID}} data-fl-item-category-id="1" data-fl-item-vendor="Nike" data-fl-item-available="true"></div>{% endraw %}
+{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id= {{zItemID}} data-fl-item-category-id={{CatID}} data-fl-item-vendor={{VendorName}} data-fl-item-available={{Availability}}></div>{% endraw %}
 ```
 
 Где `zItemID` – заранее созданная вами переменная, хранящая ID просматриваемого в данный момент товара. 
