@@ -68,7 +68,7 @@ section: integration
 * Поместите в поле HTML следующий код:
 
 ```html
-<div class="i-flocktory" data-fl-action="track-category-view" data-fl-category-id="123"></div>
+{% raw %}<div class="i-flocktory" data-fl-user-name="{{VisitorName}}" data-fl-user-email="{{VisitorEmail}}"></div>{% endraw %}
 ```
 Где `VisitorName` и `VisitorEmail` – заранее созданные вами переменные, содержащие данные об имени и e-mail клиента соответственно:
 
@@ -103,7 +103,7 @@ section: integration
 * Поместите в поле HTML следующий код:
 
 ```html
-<div class="i-flocktory" data-fl-action="track-category-view" data-fl-category-id={{CatID}}></div>
+{% raw %}<div class="i-flocktory" data-fl-action="track-category-view" data-fl-category-id={{CatID}}></div>{% endraw %}
 ```
 Где `CatID` – заранее созданная вами переменная, хранящая ID просматриваемой в данный момент категории.
 
