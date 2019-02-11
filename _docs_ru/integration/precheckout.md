@@ -4,7 +4,6 @@ title:  "Pre-checkout"
 section: integration
 ---
 
-
 ## Необходимые требования для начала интеграции
 Для корректной работы модуля Pre-checkout на сайте должна присутствовать [Общая интеграция](https://flocktory.github.io/ru/integration/general/). 
 
@@ -33,6 +32,7 @@ section: integration
 <div class="i-flocktory" data-fl-user-name="Ivan Petrov" data-fl-user-email="ivan@petrov.ru"></div>
 ```
 До авторизации код передавать не нужно. После неё в параметры data-fl-user-name и  data-fl-user-email нужно передать вместо Ivan Petrov имя пользователя и вместо  ivan@petrov.ru   -  e-mail пользователя соответственно.
+
 Параметры кода:
 
 | Название параметра     | Параметр               | Описание  |         Обязательный                    |
