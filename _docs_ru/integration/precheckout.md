@@ -1,14 +1,14 @@
 ---
 layout: doc
-title:  "Pre-checkout"
+title:  "Precheckout"
 section: integration
 ---
 
 ## Необходимые требования для начала интеграции
-Для корректной работы модуля Pre-checkout на сайте должна присутствовать [Общая интеграция](https://flocktory.github.io/ru/integration/general/). 
+Для корректной работы модуля Precheckout на сайте должна присутствовать [Общая интеграция](https://flocktory.github.io/ru/integration/general/). 
 
 
-## 1. Код интеграции Pre-checkout
+## 1. Код интеграции Precheckout
 
 Данный шаг абсолютно идентичен Общей интеграции Flocktory. Если она уже проведена, то выполнять это пункт не нужно. Иначе следует произвести следующие действия:
 
@@ -16,7 +16,7 @@ section: integration
 ```html
 <script type="text/javascript" src="https://api.flocktory.com/v2/loader.js?site_id=YOUR_SITE_ID" async="async"></script>
 ```
-Он является общим для всех продуктов Flocktory и достаточно разместить его один раз, даже если на странице установлено несколько модулей (например Exchange и Post-checkout).
+Он является общим для всех продуктов Flocktory и достаточно разместить его один раз, даже если на странице установлено несколько модулей (например Exchange и Postcheckout).
 	
 1.2. Замените YOUR_SITE_ID на присвоенный вашему сайту ID. Узнать его Вы можете в [личном кабинете.](https://cabinet.flocktory.com/)
 
