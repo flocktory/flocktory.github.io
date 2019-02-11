@@ -103,7 +103,7 @@ section: integration
 * Поместите в поле HTML следующий код:
 
 ```html
-{% raw %}<div class="i-flocktory" data-fl-action="track-category-view" data-fl-category-id={{CatID}}></div>{% endraw %}
+{% raw %}<div class="i-flocktory" data-fl-action="track-category-view" data-fl-category-id="{{CatID}}"></div>{% endraw %}
 ```
 Где `CatID` – заранее созданная вами переменная, хранящая ID просматриваемой в данный момент категории.
 
@@ -137,7 +137,7 @@ section: integration
 
 
 ```html
-{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id= {{zItemID}} data-fl-item-category-id={{CatID}} data-fl-item-vendor={{VendorName}} data-fl-item-available={{Availability}}></div>{% endraw %}
+{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id="{{zItemID}}" data-fl-item-category-id="{{CatID}}" data-fl-item-vendor="{{VendorName}}" data-fl-item-available="{{Availability}}"></div>{% endraw %}
 ```
 
 Где `zItemID` – заранее созданная вами переменная, хранящая ID просматриваемого в данный момент товара. 
