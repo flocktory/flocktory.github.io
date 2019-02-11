@@ -137,7 +137,7 @@ section: integration
 
 
 ```html
-<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id= {{zItemID}} data-fl-item-category-id="1" data-fl-item-vendor="Nike" data-fl-item-available="true"></div>
+{% raw %}<div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id= {{zItemID}} data-fl-item-category-id="1" data-fl-item-vendor="Nike" data-fl-item-available="true"></div>{% endraw %}
 ```
 
 Где `zItemID` – заранее созданная вами переменная, хранящая ID просматриваемого в данный момент товара. 
@@ -174,7 +174,7 @@ section: integration
 * Поместите в поле HTML следующий код. Он отвечает за добавление товара в корзину Flocktory:
 
 ```html
-window.flocktory = window.flocktory || [];
+{% raw %}window.flocktory = window.flocktory || [];
 window.flocktory.push(['addToCart', {
 	item: {
 		"id": {{Ecommerce}}.add.products[0].id, // product id
@@ -183,7 +183,7 @@ window.flocktory.push(['addToCart', {
 		"brand": {{Ecommerce}}.add.products[0].brand, // product brand name
 		"categoryId": {{Ecommerce}}.add.products[0].category // product category id
 	}
-}])
+}]){% endraw %}
 ```
 
  Где `{{Ecommerce}}` – заранее созданная вами переменная, хранящая данные о добавленном в корзину товаре. Вы можете использовать массив, как в примере, либо создать отдельную переменную для каждого параметра.
@@ -195,13 +195,13 @@ window.flocktory.push(['addToCart', {
 *  Создайте новый тег для кода удаления товара и впишите в поле HTML следующий код:
 
 ```html
-window.flocktory = window.flocktory || [];
+{% raw %}window.flocktory = window.flocktory || [];
 window.flocktory.push(['removeFromCart', {
 	item: {
 		id: {{Ecommerce}}.remove.products[0].id, // product id
 		count: {{Ecommerce}}.remove.products[0].quantity // quantity of this product removed
 	}
-}]);
+}]);{% endraw %}
 ```
 
 Где `Ecommerce` – заранее созданная вами переменная, хранящая данные об удалённом из корзины товаре. Вы можете использовать массив, как в примере, либо создать отдельную переменную для каждого параметра.
@@ -213,12 +213,12 @@ window.flocktory.push(['removeFromCart', {
 * Если вам необходимо использовать механику updateCart, позволяющую обновить состояние корзины Flocktory, то создайте тег для кода удаления товара и впишите в поле HTML следующий код:
 
 ```html
-window.flocktory = window.flocktory || [];
+{% raw %}window.flocktory = window.flocktory || [];
 window.flocktory.push(['updateCart', {
   cart: {
     items:{{Cart}}
   }
-}]);
+}]);{% endraw %}
 ```
 Где `Cart` – заранее созданная вами переменная, хранящая в себе актуальное состояние корзины. 
 
