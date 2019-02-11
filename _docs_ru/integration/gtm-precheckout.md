@@ -70,7 +70,7 @@ section: integration
 ```html
 <div class="i-flocktory" data-fl-action="track-category-view" data-fl-category-id="123"></div>
 ```
-Где `{{VisitorName}}` и `{{VisitorEmail}}` – заранее созданные вами переменные, содержащие данные об имени и e-mail клиента соответственно:
+Где `VisitorName` и `VisitorEmail` – заранее созданные вами переменные, содержащие данные об имени и e-mail клиента соответственно:
 
 ![screen23](https://github.com/flocktory/flocktory.github.io/blob/b0382a2c558a0f8dec997c38cdb62cd5ed7b7173/23.png?raw=true)
 
@@ -105,7 +105,7 @@ section: integration
 ```html
 <div class="i-flocktory" data-fl-action="track-category-view" data-fl-category-id={{CatID}}></div>
 ```
-Где `{{CatID}}` – заранее созданная вами переменная, хранящая ID просматриваемой в данный момент категории.
+Где `CatID` – заранее созданная вами переменная, хранящая ID просматриваемой в данный момент категории.
 
 ![screen33](https://github.com/flocktory/flocktory.github.io/blob/89bc3b320b905663e0bfed29fc9192c42cb430ff/33.png?raw=true)
 
@@ -140,7 +140,7 @@ section: integration
 <div class="i-flocktory" data-fl-action="track-item-view" data-fl-item-id= {{zItemID}} data-fl-item-category-id="1" data-fl-item-vendor="Nike" data-fl-item-available="true"></div>
 ```
 
-Где `{{zItemID}}` – заранее созданная вами переменная, хранящая ID просматриваемого в данный момент товара. 
+Где `zItemID` – заранее созданная вами переменная, хранящая ID просматриваемого в данный момент товара. 
 
 ![screen43](https://github.com/flocktory/flocktory.github.io/blob/89bc3b320b905663e0bfed29fc9192c42cb430ff/43.png?raw=true)
 
@@ -204,7 +204,7 @@ window.flocktory.push(['removeFromCart', {
 }]);
 ```
 
-Где `{{Ecommerce}}` – заранее созданная вами переменная, хранящая данные об удалённом из корзины товаре. Вы можете использовать массив, как в примере, либо создать отдельную переменную для каждого параметра.
+Где `Ecommerce` – заранее созданная вами переменная, хранящая данные об удалённом из корзины товаре. Вы можете использовать массив, как в примере, либо создать отдельную переменную для каждого параметра.
 
 ![screen55](https://github.com/flocktory/flocktory.github.io/blob/6ea75796cdc4043f8404b8f05995be2636f52d39/54.png?raw=true)
 
@@ -220,7 +220,7 @@ window.flocktory.push(['updateCart', {
   }
 }]);
 ```
-Где `{{Cart}}` – заранее созданная вами переменная, хранящая в себе актуальное состояние корзины. 
+Где `Cart` – заранее созданная вами переменная, хранящая в себе актуальное состояние корзины. 
 
 ![screen55](https://github.com/flocktory/flocktory.github.io/blob/6ea75796cdc4043f8404b8f05995be2636f52d39/55.png?raw=true)
 
