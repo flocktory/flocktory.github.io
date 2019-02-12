@@ -37,7 +37,7 @@ section: integration
 <script type="text/javascript"src="https://api.flocktory.com/v2/loader.js?site_id=YOUR_SITE_ID" async="async"></script>
 ```
 
-![screen5](https://github.com/flocktory/flocktory.github.io/blob/9f4c3c2b74dc098a5a3899f2ae17b0f102f2fafe/_docs_ru/integration/5.png?raw=true)
+![screen5](https://github.com/flocktory/flocktory.github.io/blob/d96b3662bce07061351afc11fb08c201d7fd10a3/_docs_ru/integration/gtm1.png?raw=true)
 
 * Замените YOUR_SITE_ID на присвоенный вашему сайту ID. Узнать его вы можете в [Личном кабинете](https://cabinet.flocktory.com/):
 
@@ -49,7 +49,7 @@ section: integration
 
 * Сохраните внесенные изменения при помощи кнопки «Сохранить»:
 
-![screen8](https://github.com/flocktory/flocktory.github.io/blob/9f4c3c2b74dc098a5a3899f2ae17b0f102f2fafe/_docs_ru/integration/8.png?raw=true)
+![screen8](https://github.com/flocktory/flocktory.github.io/blob/d96b3662bce07061351afc11fb08c201d7fd10a3/_docs_ru/integration/gtm2.png?raw=true)
 
 
 ## 2. Код авторизации
@@ -142,7 +142,7 @@ section: integration
 
 Где `zItemID` – заранее созданная вами переменная, хранящая ID просматриваемого в данный момент товара. 
 
-![screen43](https://github.com/flocktory/flocktory.github.io/blob/89bc3b320b905663e0bfed29fc9192c42cb430ff/43.png?raw=true)
+![screen43](https://github.com/flocktory/flocktory.github.io/blob/d96b3662bce07061351afc11fb08c201d7fd10a3/_docs_ru/integration/gtm3.png?raw=true)
 
 * Привяжите тег к триггеру, срабатывающему при просмотре товара и сохраните изменения. О том как привязывать тег к триггеру вы можете прочитать в первой части инструкции.
 
@@ -188,7 +188,7 @@ window.flocktory.push(['addToCart', {
 
  Где `Ecommerce` – заранее созданная вами переменная, хранящая данные о добавленном в корзину товаре. Вы можете использовать массив, как в примере, либо создать отдельную переменную для каждого параметра.
 
-![screen53](https://github.com/flocktory/flocktory.github.io/blob/6ea75796cdc4043f8404b8f05995be2636f52d39/53.png?raw=true)
+![screen53](https://github.com/flocktory/flocktory.github.io/blob/ecf929993f1696c2e5d72de27cd422cc1af06f59/gtm4.png?raw=true)
 
 * Привяжите тег к триггеру, срабатывающему при добавлении товара в корзину, и сохраните изменения. О том как привязывать тег к триггеру вы можете прочитать в первой части инструкции.
 
@@ -206,7 +206,7 @@ window.flocktory.push(['removeFromCart', {
 
 Где `Ecommerce` – заранее созданная вами переменная, хранящая данные об удалённом из корзины товаре. Вы можете использовать массив, как в примере, либо создать отдельную переменную для каждого параметра.
 
-![screen55](https://github.com/flocktory/flocktory.github.io/blob/6ea75796cdc4043f8404b8f05995be2636f52d39/54.png?raw=true)
+![screen54](https://github.com/flocktory/flocktory.github.io/blob/ecf929993f1696c2e5d72de27cd422cc1af06f59/gtm5.png?raw=true)
 
 * Привяжите тег к триггеру, срабатывающему при удалении товара из корзины, и сохраните изменения. О том как привязывать тег к триггеру вы можете прочитать в первой части инструкции.
 
@@ -220,9 +220,9 @@ window.flocktory.push(['updateCart', {
   }
 }]);{% endraw %}
 ```
-Где `Cart` – заранее созданная вами переменная, хранящая в себе актуальное состояние корзины. 
+Где `Cart`- заранее созданная вами переменная, хранящая в себе массив, отражающий актуальное состояние корзины. Каждый элемент массива должен соответствовать одному товару в корзине. Данные о товаре следует вносить по аналогии с кодом addToCart. 
 
-![screen55](https://github.com/flocktory/flocktory.github.io/blob/6ea75796cdc4043f8404b8f05995be2636f52d39/55.png?raw=true)
+![screen55](https://github.com/flocktory/flocktory.github.io/blob/ecf929993f1696c2e5d72de27cd422cc1af06f59/gtm6.png?raw=true)
 
 * Привяжите тег к триггеру, срабатывающему при при подразумевающем обновление корзины действии, и сохраните изменения. О том как привязывать тег к триггеру вы можете прочитать в первой части инструкции.
 
