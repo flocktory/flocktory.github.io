@@ -43,7 +43,7 @@ section: integration
 
 ![screen6](https://github.com/flocktory/flocktory.github.io/blob/9f4c3c2b74dc098a5a3899f2ae17b0f102f2fafe/_docs_ru/integration/6.png?raw=true)
 
-* Нажмите на поле «Триггеры» и выбрать из списка триггер «All pages»:
+* Нажмите на поле «Триггеры» и выберите из списка триггер «All pages»:
 
 ![screen7](https://github.com/flocktory/flocktory.github.io/blob/9f4c3c2b74dc098a5a3899f2ae17b0f102f2fafe/_docs_ru/integration/7.png?raw=true)
 
