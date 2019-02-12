@@ -361,6 +361,9 @@ window.flocktory.push(['updateCart', {
 ![auth_code](https://github.com/flocktory/flocktory.github.io/blob/860040d8c399792c6678cc80eeaf447249049ef5/_docs_ru/integration/auth_code.png?raw=true)
 
 
+* Если вы не авторизовались, запись setup-api все равно будет присутствовать, но в ней не будет параметров "name" и "email".
+
+
 ### 3. ID категорий 
 
 
