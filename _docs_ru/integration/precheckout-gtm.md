@@ -5,8 +5,8 @@ section: integration
 ---
 Интеграция Precheckout через [Google Tag Manager](https://www.google.com/intl/ru/tagmanager/).
 
-## Необходимые требования для начала интеграции
-Для корректной работы модуля Precheckout на сайте должна присутствовать [Общая интеграция](https://flocktory.github.io/ru/integration/general/). 
+## Необходимые требования для начала интеграции модуля Precheckout
+Для корректной работы модуля Precheckout на сайте должна присутствовать [Общая интеграция](https://flocktory.github.io/ru/integration/general/) и коды [Postcheckout](https://flocktory.github.io/ru/integration/postcheckout/). 
 
 
 ## 1. Код интеграции Prechekout
