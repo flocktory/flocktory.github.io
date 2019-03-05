@@ -64,6 +64,6 @@ order: 1
 ![screen13](https://i.imgur.com/qayyvVW.jpg)
 ![screen14](https://i.imgur.com/3hSCxDc.jpg)
  
-5.	Убедитесь, что код имеет статус 200 и прокрутите содержимое вкладки до конца, пока не увидите site_id - он должен совпадать с вашим:
+5.	Убедитесь, что код имеет статус 200, и прокрутите содержимое вкладки до конца, пока не увидите site_id - он должен совпадать с вашим:
 ![screen15](https://i.imgur.com/EAUmeaT.jpg)
 ![screen16](https://i.imgur.com/7NtelhQ.jpg)
