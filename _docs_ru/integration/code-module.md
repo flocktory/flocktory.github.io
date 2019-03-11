@@ -10,7 +10,7 @@ order: 1
 Для корректной работы любого из модулей Flocktory необходима успешная интеграция определенных кодов:
 
 
-|  Коды↓ Модуль→| Postcheckout | Precheckout | Push | Exchange | Exchange Loyalty | Workflow | Xmail/ Xpush |
+|  Коды↓ Модуль→| Postcheckout | Precheckout | Push | Exchange | Exchange Loyalty | Workflow | Xmail / Xpush |
 |-------------------|--------------|-------------|------|----------|------------------|----------|--------------|
 | [Postcheckout](https://flocktory.github.io/ru/integration/postcheckout/)      |       ✅      |      ✅      |   ✅  |     ✅    |                  |     ✅    |       ✅      |
 | [Precheckout](https://flocktory.github.io/ru/integration/precheckout/)       |              |      ✅      |   ✅  |          |                  |     ✅    |       ✅      |
