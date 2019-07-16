@@ -40,6 +40,7 @@ Flocktory – это облачная SaaS-платформа, которая о
 | Feedback (3)            |      ✅      |      ✅      |      |          |                  |     
 | xMail / xPush         |      ✅      |     ✅      |   ✅    |     ✅    |               |        
 
+
 (1) Workflow не выделяется как отдельный продукт
 
 (2) Работа First Party Data базируется на работе Pre-Checkout
