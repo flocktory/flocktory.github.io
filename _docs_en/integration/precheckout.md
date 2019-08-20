@@ -19,7 +19,7 @@ To launch campaigns based on these trigger you have to:
 Enter the link to your updated YML or GMF-file (or send this info to your account manager);
 Integrate the Flocktory code according to the instruction below - direct integration of integration via Google Tag Manager is possible
 
-For this module to wirk properly you should as well perform [main]({{ site.baseurl }}{% link _docs_ru/integration/general.md %}) and [postcheckout]({{ site.baseurl }}{% link _docs_ru/integration/postcheckout.md %}) integrations.
+For this module to wirk properly you should as well perform [main]({{ site.baseurl }}{% link _docs_ru/integration/integration.md %}) and [postcheckout]({{ site.baseurl }}{% link _docs_ru/integration/integration.md %}) integrations.
 
 <a id="auth-user"></a>
 

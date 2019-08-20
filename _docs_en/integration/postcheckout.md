@@ -3,7 +3,7 @@ layout: doc
 title:  "Postcheckout"
 section: integration
 ---
-**Attention!** Before you can use the Flocktory platform for your website you need to perform the  [main integration]({{ site.baseurl }}{% link _docs_ru/integration/general.md %})
+**Attention!** Before you can use the Flocktory platform for your website you need to perform the  [main integration]({{ site.baseurl }}{% link _docs_ru/integration/integration.md %})
 
 You will need to insert this code on the “thank you” page of your website – the page that confirms the successful order of your shop.
 
