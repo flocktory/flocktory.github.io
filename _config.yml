@@ -31,3 +31,6 @@ sections_order:
 - push
 - utilities
 - widget
+
+plugins:
+  - jekyll-redirect-from
