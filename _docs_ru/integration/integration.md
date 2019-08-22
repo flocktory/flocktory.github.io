@@ -3,6 +3,8 @@ layout: doc
 title:  "Интеграция"
 section: integration
 order: 1
+redirect_from: "/ru/integration/precheckout/"
+redirect_from: "/ru/integration/postcheckout/"
 ---
 
 ## Введение
