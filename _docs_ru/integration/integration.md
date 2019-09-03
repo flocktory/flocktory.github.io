@@ -3,8 +3,9 @@ layout: doc
 title:  "Интеграция"
 section: integration
 order: 1
-redirect_from: "/ru/integration/precheckout/"
-redirect_from: "/ru/integration/postcheckout/"
+redirect_from:
+    - "/ru/integration/precheckout/"
+    - "/ru/integration/postcheckout/"
 ---
 
 ## Введение
@@ -31,16 +32,16 @@ Flocktory – это облачная SaaS-платформа, которая о
 Схема зависимости модулей приведена в таблице ниже:
 
 
-|  Устанавливаемый модуль(1)↓ Требуемый код→| Общая интеграция | Post-Checkout | Pre-Checkout | Push | Exchange |
-|-------------------|--------------|-------------|------|----------|------------------|
-| Postcheckout      |       ✅     |      ✅     |      |          |             |        
-| Precheckout       |       ✅     |      ✅     |   ✅  |          |            |       
-| Push              |       ✅     |      ✅     |   ✅  |    ✅    |                  |     
-| Exchange          |       ✅     |      ✅     |   ✅  |          |         ✅        |          
-| Exchange as Loyalty     |      ✅     |      ✅      |   ✅  |         |      ✅          |     
-| First Party Data (2)     |       ✅      |      ✅      |   ✅  |          |                  |     
-| Feedback (3)            |      ✅      |      ✅      |      |          |                  |     
-| xMail / xPush         |      ✅      |     ✅      |   ✅    |     ✅    |               |        
+| Устанавливаемый модуль(1)↓ Требуемый код→ | Общая интеграция | Post-Checkout | Pre-Checkout | Push | Exchange |
+| ----------------------------------------- | ---------------- | ------------- | ------------ | ---- | -------- |
+| Postcheckout                              | ✅                | ✅             |              |      |          |
+| Precheckout                               | ✅                | ✅             | ✅            |      |          |
+| Push                                      | ✅                | ✅             | ✅            | ✅    |          |
+| Exchange                                  | ✅                | ✅             | ✅            |      | ✅        |
+| Exchange as Loyalty                       | ✅                | ✅             | ✅            |      | ✅        |
+| First Party Data (2)                      | ✅                | ✅             | ✅            |      |          |
+| Feedback (3)                              | ✅                | ✅             |              |      |          |
+| xMail / xPush                             | ✅                | ✅             | ✅            | ✅    |          |
 
 
 
