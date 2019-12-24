@@ -26,10 +26,8 @@ MGM – member get member. Механика, когда пользователь
 
 5. Настроить посты в соцсетях, нажать далее
 ![social](https://assets.flocktory.com/uploads/clients/2708/23e11694-f271-42ab-9ee0-b141bcdd4665_social.png)
-
 5.1 Доступные переменные можно посмотреть на шаге настройки постов в соцсетях по кнопке на скриншоте
 ![var](https://assets.flocktory.com/uploads/clients/2708/41cd0619-769e-4ee0-b82c-76e7d9805b10_variable.png)
-
 6. Заполнить имя кампании, сохранить и запустить
 ![final](https://assets.flocktory.com/uploads/clients/2708/da297bc9-34fc-46ad-84fb-f5ce135a14df_final.png)
 
