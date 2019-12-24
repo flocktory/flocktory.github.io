@@ -84,6 +84,3 @@ MGM – member get member. Механика, когда пользователь
 ![Сохраняем кампанию](https://assets.flocktory.com/uploads/clients/2708/bc33d1e2-ced8-4614-abc6-f68b3a4d83d3_savemgm.png)
 
 Если нужно, повторяем тот же порядок действий для **friend_ordered_email**.
-
-
-
