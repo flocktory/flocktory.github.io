@@ -13,7 +13,7 @@ MGM – member get member. Механика, когда пользователь
 ## Заведение кампании
 
 1. Создать Precheckout-кампанию, выбрать тип MGM
-![Создать кампанию]( https://assets.flocktory.com/uploads/clients/2708/1348546c-ea04-4c26-ac94-8883717a7fe6_create_mgm.png)
+![Создать кампанию](https://assets.flocktory.com/uploads/clients/2708/14a798ea-16dd-4705-ab9e-1cffa379b088_step1.png)
 
 2. Выбрать аудиторию, либо просто нажать далее
 ![Шаг 1](https://assets.flocktory.com/uploads/clients/2708/949d3812-c5a2-4617-b1ea-adb376d6bda2_step-2.png)
@@ -27,7 +27,7 @@ MGM – member get member. Механика, когда пользователь
 5. Настроить посты в соцсетях, нажать далее
 ![social](https://assets.flocktory.com/uploads/clients/2708/23e11694-f271-42ab-9ee0-b141bcdd4665_social.png)
 5.1 Доступные переменные можно посмотреть на шаге настройки постов в соцсетях по кнопке на скриншоте
-![var](https://assets.flocktory.com/uploads/clients/2708/41cd0619-769e-4ee0-b82c-76e7d9805b10_variable.png)
+![var](https://assets.flocktory.com/uploads/clients/2708/4b89da7d-7840-4daa-96a3-7ebb5498e30e_5.1.png)
 6. Заполнить имя кампании, сохранить и запустить
 ![final](https://assets.flocktory.com/uploads/clients/2708/da297bc9-34fc-46ad-84fb-f5ce135a14df_final.png)
 
