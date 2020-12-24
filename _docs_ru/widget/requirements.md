@@ -28,6 +28,10 @@ order: 9
 - `selector-required` — требуется задать селектор элемента.
 
   *Применение: для встраиваемых виджетов*
+  
+- `is-manual-distribution-allowed` — можно задать распределение траффика по вариациям.
+
+  *Применение: в кампаниях с колесом фортуны*
 
 
 # Примеры использования
@@ -54,4 +58,8 @@ order: 9
 
 ```html
 <meta name="fl-requirements" content="selector-required" />
+```
+
+```html
+<meta name="fl-requirements" content="is-manual-distribution-allowed" />
 ```
